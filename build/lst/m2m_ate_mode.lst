@@ -1,0 +1,219 @@
+ARM GAS  C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 2
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"m2m_ate_mode.c"
+  12              		.section	.gnu.debuglto_.debug_info,"e",%progbits
+  13              	.Ldebug_info0:
+  14              		.hidden	m2m_ate_mode.c.6b242815
+  15              		.weak	m2m_ate_mode.c.6b242815
+  16              	m2m_ate_mode.c.6b242815:
+  17 0000 19000000 		.4byte	0x19
+  18 0004 0400     		.2byte	0x4
+  19 0006 00000000 		.4byte	.Ldebug_abbrev0
+  20 000a 04       		.byte	0x4
+  21 000b 01       		.uleb128 0x1
+  22 000c 28000000 		.4byte	.LASF0
+  23 0010 0C       		.byte	0xc
+  24 0011 00000000 		.4byte	.LASF1
+  25 0015 0F010000 		.4byte	.LASF2
+  26 0019 00000000 		.4byte	.Ldebug_line0
+  27              		.section	.gnu.debuglto_.debug_abbrev,"e",%progbits
+  28              	.Ldebug_abbrev0:
+  29 0000 01       		.uleb128 0x1
+  30 0001 11       		.uleb128 0x11
+  31 0002 00       		.byte	0
+  32 0003 25       		.uleb128 0x25
+  33 0004 0E       		.uleb128 0xe
+  34 0005 13       		.uleb128 0x13
+  35 0006 0B       		.uleb128 0xb
+  36 0007 03       		.uleb128 0x3
+  37 0008 0E       		.uleb128 0xe
+  38 0009 1B       		.uleb128 0x1b
+  39 000a 0E       		.uleb128 0xe
+  40 000b 10       		.uleb128 0x10
+  41 000c 17       		.uleb128 0x17
+  42 000d 00       		.byte	0
+  43 000e 00       		.byte	0
+  44 000f 00       		.byte	0
+  45              		.section	.gnu.debuglto_.debug_line,"e",%progbits
+  46              	.Ldebug_line0:
+  47 0000 1A000000 		.4byte	.LELT0-.LSLT0
+  48              	.LSLT0:
+  49 0004 0400     		.2byte	0x4
+  50 0006 14000000 		.4byte	.LELTP0-.LASLTP0
+  51              	.LASLTP0:
+  52 000a 01       		.byte	0x1
+  53 000b 01       		.byte	0x1
+  54 000c 01       		.byte	0x1
+  55 000d F6       		.byte	0xf6
+  56 000e F2       		.byte	0xf2
+  57 000f 0D       		.byte	0xd
+ARM GAS  C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s 			page 2
+
+
+  58 0010 00       		.byte	0
+  59 0011 01       		.byte	0x1
+  60 0012 01       		.byte	0x1
+  61 0013 01       		.byte	0x1
+  62 0014 01       		.byte	0x1
+  63 0015 00       		.byte	0
+  64 0016 00       		.byte	0
+  65 0017 00       		.byte	0
+  66 0018 01       		.byte	0x1
+  67 0019 00       		.byte	0
+  68 001a 00       		.byte	0
+  69 001b 01       		.byte	0x1
+  70 001c 00       		.byte	0
+  71 001d 00       		.byte	0
+  72              	.LELTP0:
+  73              	.LELT0:
+  74              		.section	.gnu.debuglto_.debug_str,"eMS",%progbits,1
+  75              	.LASF1:
+  76 0000 2E2F7769 		.ascii	"./winc1500/driver/source/m2m_ate_mode.c\000"
+  76      6E633135 
+  76      30302F64 
+  76      72697665 
+  76      722F736F 
+  77              	.LASF0:
+  78 0028 474E5520 		.ascii	"GNU C17 9.2.1 20191025 (release) [ARM/arm-9-branch "
+  78      43313720 
+  78      392E322E 
+  78      31203230 
+  78      31393130 
+  79 005b 72657669 		.ascii	"revision 277599] -mcpu=cortex-m4 -mthumb -mfloat-ab"
+  79      73696F6E 
+  79      20323737 
+  79      3539395D 
+  79      202D6D63 
+  80 008e 693D736F 		.ascii	"i=soft -march=armv7e-m -ggdb -O2 -fomit-frame-point"
+  80      6674202D 
+  80      6D617263 
+  80      683D6172 
+  80      6D763765 
+  81 00c1 6572202D 		.ascii	"er -falign-functions=16 -ffunction-sections -fdata-"
+  81      66616C69 
+  81      676E2D66 
+  81      756E6374 
+  81      696F6E73 
+  82 00f4 73656374 		.ascii	"sections -fno-common -flto\000"
+  82      696F6E73 
+  82      202D666E 
+  82      6F2D636F 
+  82      6D6D6F6E 
+  83              	.LASF2:
+  84 010f 433A5C43 		.ascii	"C:\\ChibiStudio\\workspace_user\\RT-STM32F410RB-NUC"
+  84      68696269 
+  84      53747564 
+  84      696F5C77 
+  84      6F726B73 
+  85 013f 4C454F36 		.ascii	"LEO65\000"
+  85      3500
+ARM GAS  C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s 			page 3
+
+
+  86              		.text
+  87              		.section	.gnu.lto_.profile.80926466,"e",%progbits
+  88 0000 789CE360 		.ascii	"x\234\343``\004B \000\000\000]\000\013"
+  88      60044220 
+  88      0000005D 
+  88      000B
+  89              		.text
+  90              		.section	.gnu.lto_.icf.80926466,"e",%progbits
+  91 0000 789CE360 		.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
+  91      60646062 
+  91      40060000 
+  91      CE000C
+  92              		.text
+  93              		.section	.gnu.lto_.jmpfuncs.80926466,"e",%progbits
+  94 0000 789CE360 		.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
+  94      60646062 
+  94      40060000 
+  94      CE000C
+  95              		.text
+  96              		.section	.gnu.lto_.inline.80926466,"e",%progbits
+  97 0000 789CE360 		.ascii	"x\234\343``d`b@\006\000\000\316\000\014"
+  97      60646062 
+  97      40060000 
+  97      CE000C
+  98              		.text
+  99              		.section	.gnu.lto_.pureconst.80926466,"e",%progbits
+ 100 0000 789CE360 		.ascii	"x\234\343``\004B \000\000\000]\000\013"
+ 100      60044220 
+ 100      0000005D 
+ 100      000B
+ 101              		.text
+ 102              		.section	.gnu.lto_.symbol_nodes.80926466,"e",%progbits
+ 103 0000 789CE360 		.ascii	"x\234\343``d`b\000\001\000\000n\000\014"
+ 103      60646062 
+ 103      00010000 
+ 103      6E000C
+ 104              		.text
+ 105              		.section	.gnu.lto_.refs.80926466,"e",%progbits
+ 106 0000 789CE360 		.ascii	"x\234\343``\004B \000\000\000]\000\013"
+ 106      60044220 
+ 106      0000005D 
+ 106      000B
+ 107              		.text
+ 108              		.section	.gnu.lto_.decls.80926466,"e",%progbits
+ 109 0000 789CE360 		.ascii	"x\234\343``d\000\001\020\251\002\304\377\201\000\304"
+ 109      60640001 
+ 109      10A902C4 
+ 109      FF8100C4 
+ 110 0010 BEC84000 		.ascii	"\276\310@\000\000\000\3015\004\375"
+ 110      0000C135 
+ 110      04FD
+ 111              		.text
+ 112              		.section	.gnu.lto_.symtab.80926466,"e",%progbits
+ 113              		.text
+ 114              		.section	.gnu.lto_.opts,"e",%progbits
+ 115 0000 272D666E 		.ascii	"'-fno-openmp' '-fno-openacc' '-fno-pie' '-mcpu=cort"
+ 115      6F2D6F70 
+ARM GAS  C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s 			page 4
+
+
+ 115      656E6D70 
+ 115      2720272D 
+ 115      666E6F2D 
+ 116 0033 65782D6D 		.ascii	"ex-m4' '-mthumb' '-mfloat-abi=soft' '-march=armv7e-"
+ 116      34272027 
+ 116      2D6D7468 
+ 116      756D6227 
+ 116      20272D6D 
+ 117 0066 6D272027 		.ascii	"m' '-O2' '-fomit-frame-pointer' '-falign-functions="
+ 117      2D4F3227 
+ 117      20272D66 
+ 117      6F6D6974 
+ 117      2D667261 
+ 118 0099 31362720 		.ascii	"16' '-ffunction-sections' '-fdata-sections' '-fno-c"
+ 118      272D6666 
+ 118      756E6374 
+ 118      696F6E2D 
+ 118      73656374 
+ 119 00cc 6F6D6D6F 		.ascii	"ommon' '-flto'\000"
+ 119      6E272027 
+ 119      2D666C74 
+ 119      6F2700
+ 120              		.text
+ 121              		.comm	__gnu_lto_v1,1,1
+ 122              		.comm	__gnu_lto_slim,1,1
+ 123              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 m2m_ate_mode.c
+C:\Users\RAKIBU~1\AppData\Local\Temp\cckie7ao.s:16     .gnu.debuglto_.debug_info:00000000 m2m_ate_mode.c.6b242815
+                            *COM*:00000001 __gnu_lto_v1
+                            *COM*:00000001 __gnu_lto_slim
+
+NO UNDEFINED SYMBOLS
