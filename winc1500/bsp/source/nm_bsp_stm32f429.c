@@ -85,7 +85,6 @@ static void init_chip_pins(void)
 //	GPIO_InitStruct.Pull = GPIO_PULLUP;
 //	HAL_GPIO_Init(CONF_WINC_IRQ_PORT, &GPIO_InitStruct);
   palSetPadMode(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_MODE_INPUT_PULLUP);
-  myPrintf("initialzed chip pins\n");
 }
 
 /*
@@ -127,10 +126,15 @@ void nm_bsp_reset(void)
 //	HAL_GPIO_WritePin(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,GPIO_PIN_SET);
 //	nm_bsp_sleep(10);
 //	HAL_GPIO_WritePin(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,GPIO_PIN_SET);
+  palClearPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
+  palClearPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
+  nm_bsp_sleep(100);
+
+
   palSetPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
-  chThdSleepMilliseconds(10);
+  nm_bsp_sleep(10);
   palSetPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
-  myPrintf("reset chip pins\n");
+  nm_bsp_sleep(10);
 }
 
 /*

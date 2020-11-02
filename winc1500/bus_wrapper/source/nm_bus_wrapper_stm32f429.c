@@ -141,6 +141,7 @@ void nm_bus_wifi_spi_init(SPIDriver *SPID)
 //	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
 //	GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
 //	HAL_GPIO_Init(SPI_WIFI_SCK_PORT, &GPIO_InitStruct);
+  //palSetPadMode(SPI_WIFI_CS_PORT, SPI_WIFI_CS_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
   spiStart(SPID,&spicfg);
 }
 

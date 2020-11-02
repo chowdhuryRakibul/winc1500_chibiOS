@@ -43,7 +43,7 @@
 #include "winc1500/driver/include/m2m_wifi.h"
 #include "winc1500/driver/source/m2m_hif.h"
 #include "winc1500/driver/source/nmasic.h"
-#include "hal.h"
+
 static volatile uint8 gu8ChNum;
 static volatile uint8 gu8scanInProgress = 0;
 static tpfAppWifiCb gpfAppWifiCb = NULL;

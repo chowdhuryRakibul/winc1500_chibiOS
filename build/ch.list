@@ -349,7 +349,7 @@ endfiniloop:
                 ldr     r1, =__process_stack_base__
  80002b0:	20000400 	.word	0x20000400
                 ldr     r1, =__textdata_base__
- 80002b4:	08003fc4 	.word	0x08003fc4
+ 80002b4:	08003f98 	.word	0x08003f98
                 ldr     r2, =__data_base__
  80002b8:	20000800 	.word	0x20000800
                 ldr     r3, =__data_end__
@@ -764,7 +764,7 @@ const stm32_dma_stream_t *dmaStreamAllocI(uint32_t id,
  80005bc:	20000b70 	.word	0x20000b70
  80005c0:	40023800 	.word	0x40023800
  80005c4:	2000087c 	.word	0x2000087c
- 80005c8:	08003d30 	.word	0x08003d30
+ 80005c8:	08003d04 	.word	0x08003d04
  80005cc:	00000000 	.word	0x00000000
 
 080005d0 <_pal_lld_enablepadevent.constprop.0>:
@@ -2732,7 +2732,7 @@ static sint8 spi_data_read(uint8 *b, uint16 sz,uint8 clockless)
  800105c:	2608      	movs	r6, #8
  800105e:	e780      	b.n	8000f62 <spi_cmd+0x32>
  8001060:	20000c21 	.word	0x20000c21
- 8001064:	08003e08 	.word	0x08003e08
+ 8001064:	08003ddc 	.word	0x08003ddc
 	...
 
 08001070 <nm_spi_read>:
@@ -5609,7 +5609,7 @@ int main(void) {
  8002378:	40023800 	.word	0x40023800
  800237c:	40007000 	.word	0x40007000
  8002380:	20000b70 	.word	0x20000b70
- 8002384:	08003d3c 	.word	0x08003d3c
+ 8002384:	08003d10 	.word	0x08003d10
  8002388:	40026010 	.word	0x40026010
  800238c:	f853 0c0c 	ldr.w	r0, [r3, #-12]
     _stm32_dma_streams[i].stream->CR = STM32_DMA_CR_RESET_VALUE;
@@ -6123,7 +6123,7 @@ __STATIC_INLINE void __NVIC_SetPriorityGrouping(uint32_t PriorityGroup)
   tqp->prev = (thread_t *)tqp;
  80026ae:	f8c3 00c0 	str.w	r0, [r3, #192]	; 0xc0
  80026b2:	f1be 0f00 	cmp.w	lr, #0
- 80026b6:	f000 8315 	beq.w	8002ce4 <main+0x9f4>
+ 80026b6:	f000 8317 	beq.w	8002ce8 <main+0x9f8>
   tp->state = CH_STATE_READY;
  80026ba:	f883 70b0 	strb.w	r7, [r3, #176]	; 0xb0
   cp = (thread_t *)&ch.rlist.queue;
@@ -6151,12 +6151,12 @@ __STATIC_INLINE void __NVIC_SetPriorityGrouping(uint32_t PriorityGroup)
  800270c:	200009dc 	.word	0x200009dc
  8002710:	e000ed00 	.word	0xe000ed00
  8002714:	20000a70 	.word	0x20000a70
- 8002718:	08003f9c 	.word	0x08003f9c
+ 8002718:	08003f70 	.word	0x08003f70
  800271c:	40003800 	.word	0x40003800
  8002720:	00010016 	.word	0x00010016
  8002724:	e0042000 	.word	0xe0042000
  8002728:	20000b48 	.word	0x20000b48
- 800272c:	08003df0 	.word	0x08003df0
+ 800272c:	08003dc4 	.word	0x08003dc4
  8002730:	05fa0300 	.word	0x05fa0300
  8002734:	e0001000 	.word	0xe0001000
  8002738:	08000891 	.word	0x08000891
@@ -6196,9 +6196,9 @@ void sd_lld_start(SerialDriver *sdp, const SerialConfig *config) {
 #if STM32_SERIAL_USE_USART2
     if (&SD2 == sdp) {
       rccEnableUSART2(true);
- 8002770:	4b9b      	ldr	r3, [pc, #620]	; (80029e0 <main+0x6f0>)
+ 8002770:	4b9e      	ldr	r3, [pc, #632]	; (80029ec <main+0x6fc>)
   NVIC->IP[n] = NVIC_PRIORITY_MASK(prio);
- 8002772:	4a9c      	ldr	r2, [pc, #624]	; (80029e4 <main+0x6f4>)
+ 8002772:	4a9f      	ldr	r2, [pc, #636]	; (80029f0 <main+0x700>)
  8002774:	6c19      	ldr	r1, [r3, #64]	; 0x40
  8002776:	f441 3100 	orr.w	r1, r1, #131072	; 0x20000
  800277a:	6419      	str	r1, [r3, #64]	; 0x40
@@ -6218,9 +6218,9 @@ void sd_lld_start(SerialDriver *sdp, const SerialConfig *config) {
   USART_TypeDef *u = sdp->usart;
  8002794:	6f73      	ldr	r3, [r6, #116]	; 0x74
   if ((sdp->usart == USART1) || (sdp->usart == USART6))
- 8002796:	4a94      	ldr	r2, [pc, #592]	; (80029e8 <main+0x6f8>)
+ 8002796:	4a97      	ldr	r2, [pc, #604]	; (80029f4 <main+0x704>)
  8002798:	4293      	cmp	r3, r2
- 800279a:	f000 831c 	beq.w	8002dd6 <main+0xae6>
+ 800279a:	f000 831e 	beq.w	8002dda <main+0xaea>
  800279e:	f502 6280 	add.w	r2, r2, #1024	; 0x400
     fck = STM32_PCLK1 / config->speed;
  80027a2:	4293      	cmp	r3, r2
@@ -6230,961 +6230,962 @@ void sd_lld_start(SerialDriver *sdp, const SerialConfig *config) {
   u->CR2 = config->cr2 | USART_CR2_LBDIE;
  80027ae:	2040      	movs	r0, #64	; 0x40
   u->CR3 = config->cr3 | USART_CR3_EIE;
- 80027b0:	f04f 0901 	mov.w	r9, #1
+ 80027b0:	f04f 0a01 	mov.w	sl, #1
   u->CR1 = config->cr1 | USART_CR1_UE | USART_CR1_PEIE |
  80027b4:	f242 112c 	movw	r1, #8492	; 0x212c
   u->SR = 0;
- 80027b8:	2400      	movs	r4, #0
+ 80027b8:	f04f 0800 	mov.w	r8, #0
   u->BRR = fck;
- 80027ba:	609a      	str	r2, [r3, #8]
+ 80027bc:	609a      	str	r2, [r3, #8]
 
   osalSysLock();
   osalDbgAssert((sdp->state == SD_STOP) || (sdp->state == SD_READY),
                 "invalid state");
   sd_lld_start(sdp, config);
   sdp->state = SD_READY;
- 80027bc:	f04f 0802 	mov.w	r8, #2
+ 80027be:	f04f 0902 	mov.w	r9, #2
   u->CR2 = config->cr2 | USART_CR2_LBDIE;
- 80027c0:	6118      	str	r0, [r3, #16]
+ 80027c2:	6118      	str	r0, [r3, #16]
     sdp->rxmask = 0xFF;
- 80027c2:	22ff      	movs	r2, #255	; 0xff
+ 80027c4:	22ff      	movs	r2, #255	; 0xff
   u->CR3 = config->cr3 | USART_CR3_EIE;
- 80027c4:	f8c3 9014 	str.w	r9, [r3, #20]
+ 80027c6:	f8c3 a014 	str.w	sl, [r3, #20]
   u->CR1 = config->cr1 | USART_CR1_UE | USART_CR1_PEIE |
- 80027c8:	60d9      	str	r1, [r3, #12]
+ 80027ca:	60d9      	str	r1, [r3, #12]
   u->SR = 0;
- 80027ca:	601c      	str	r4, [r3, #0]
+ 80027cc:	f8c3 8000 	str.w	r8, [r3]
   (void)u->SR;  /* SR reset step 1.*/
- 80027cc:	6819      	ldr	r1, [r3, #0]
+ 80027d0:	6819      	ldr	r1, [r3, #0]
   (void)u->DR;  /* SR reset step 2.*/
- 80027ce:	685b      	ldr	r3, [r3, #4]
+ 80027d2:	685b      	ldr	r3, [r3, #4]
     sdp->rxmask = 0xFF;
- 80027d0:	f886 2078 	strb.w	r2, [r6, #120]	; 0x78
- 80027d4:	f886 8008 	strb.w	r8, [r6, #8]
- 80027d8:	f384 8811 	msr	BASEPRI, r4
+ 80027d4:	f886 2078 	strb.w	r2, [r6, #120]	; 0x78
+ 80027d8:	f886 9008 	strb.w	r9, [r6, #8]
+ 80027dc:	f388 8811 	msr	BASEPRI, r8
    * sleeping in a loop and check the button state.
    */
   sdStart(&SD2, &myserialcfg);
   tstrWifiInitParam param;
   int8_t ret;
   myPrintf("Bismillah\n");
- 80027dc:	4883      	ldr	r0, [pc, #524]	; (80029ec <main+0x6fc>)
+ 80027e0:	4885      	ldr	r0, [pc, #532]	; (80029f8 <main+0x708>)
   palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_RESET);
- 80027de:	4e84      	ldr	r6, [pc, #528]	; (80029f0 <main+0x700>)
+ 80027e2:	4c86      	ldr	r4, [pc, #536]	; (80029fc <main+0x70c>)
 
 
   memset((uint8_t *)&param, 0, sizeof(tstrWifiInitParam));
 
   /* Initialize Wi-Fi driver with data and status callbacks. */
   param.pfAppWifiCb = wifi_cb;
- 80027e0:	f8df a24c 	ldr.w	sl, [pc, #588]	; 8002a30 <main+0x740>
+ 80027e4:	4e86      	ldr	r6, [pc, #536]	; (8002a00 <main+0x710>)
   myPrintf("Bismillah\n");
- 80027e4:	f7ff f954 	bl	8001a90 <myPrintf>
+ 80027e6:	f7ff f953 	bl	8001a90 <myPrintf>
   myPrintf("initializing bsp_init\n");
- 80027e8:	4882      	ldr	r0, [pc, #520]	; (80029f4 <main+0x704>)
- 80027ea:	f7ff f951 	bl	8001a90 <myPrintf>
+ 80027ea:	4886      	ldr	r0, [pc, #536]	; (8002a04 <main+0x714>)
+ 80027ec:	f7ff f950 	bl	8001a90 <myPrintf>
   palSetPadMode(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,PAL_MODE_RESET);
- 80027ee:	4622      	mov	r2, r4
- 80027f0:	4641      	mov	r1, r8
- 80027f2:	4881      	ldr	r0, [pc, #516]	; (80029f8 <main+0x708>)
- 80027f4:	f7fe f8cc 	bl	8000990 <_pal_lld_setgroupmode>
+ 80027f0:	4642      	mov	r2, r8
+ 80027f2:	4649      	mov	r1, r9
+ 80027f4:	4884      	ldr	r0, [pc, #528]	; (8002a08 <main+0x718>)
+ 80027f6:	f7fe f8cb 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_RESET);
- 80027f8:	4630      	mov	r0, r6
- 80027fa:	4622      	mov	r2, r4
- 80027fc:	4641      	mov	r1, r8
- 80027fe:	f7fe f8c7 	bl	8000990 <_pal_lld_setgroupmode>
+ 80027fa:	4620      	mov	r0, r4
+ 80027fc:	4642      	mov	r2, r8
+ 80027fe:	4649      	mov	r1, r9
+ 8002800:	f7fe f8c6 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_WAKE_PORT,CONF_WINC_WAKE_PIN,PAL_MODE_RESET);
- 8002802:	4622      	mov	r2, r4
- 8002804:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 8002808:	f7fe f8c2 	bl	8000990 <_pal_lld_setgroupmode>
+ 8002804:	4642      	mov	r2, r8
+ 8002806:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 800280a:	f7fe f8c1 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,PAL_MODE_RESET);
- 800280c:	4622      	mov	r2, r4
- 800280e:	f44f 4180 	mov.w	r1, #16384	; 0x4000
- 8002812:	f7fe f8bd 	bl	8000990 <_pal_lld_setgroupmode>
+ 800280e:	4642      	mov	r2, r8
+ 8002810:	f44f 4180 	mov.w	r1, #16384	; 0x4000
+ 8002814:	f7fe f8bc 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,PAL_MODE_OUTPUT_PUSHPULL);
- 8002816:	464a      	mov	r2, r9
- 8002818:	4641      	mov	r1, r8
- 800281a:	4877      	ldr	r0, [pc, #476]	; (80029f8 <main+0x708>)
- 800281c:	f7fe f8b8 	bl	8000990 <_pal_lld_setgroupmode>
+ 8002818:	4652      	mov	r2, sl
+ 800281a:	4649      	mov	r1, r9
+ 800281c:	487a      	ldr	r0, [pc, #488]	; (8002a08 <main+0x718>)
+ 800281e:	f7fe f8b7 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_OUTPUT_PUSHPULL);
- 8002820:	4630      	mov	r0, r6
- 8002822:	464a      	mov	r2, r9
- 8002824:	4641      	mov	r1, r8
- 8002826:	f7fe f8b3 	bl	8000990 <_pal_lld_setgroupmode>
+ 8002822:	4620      	mov	r0, r4
+ 8002824:	4652      	mov	r2, sl
+ 8002826:	4649      	mov	r1, r9
+ 8002828:	f7fe f8b2 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_WAKE_PORT,CONF_WINC_WAKE_PIN,PAL_MODE_OUTPUT_PUSHPULL);
- 800282a:	464a      	mov	r2, r9
- 800282c:	f44f 5100 	mov.w	r1, #8192	; 0x2000
- 8002830:	f7fe f8ae 	bl	8000990 <_pal_lld_setgroupmode>
+ 800282c:	4652      	mov	r2, sl
+ 800282e:	f44f 5100 	mov.w	r1, #8192	; 0x2000
+ 8002832:	f7fe f8ad 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,PAL_MODE_OUTPUT_PUSHPULL);
- 8002834:	464a      	mov	r2, r9
- 8002836:	f44f 4180 	mov.w	r1, #16384	; 0x4000
- 800283a:	f7fe f8a9 	bl	8000990 <_pal_lld_setgroupmode>
+ 8002836:	4652      	mov	r2, sl
+ 8002838:	f44f 4180 	mov.w	r1, #16384	; 0x4000
+ 800283c:	f7fe f8a8 	bl	8000990 <_pal_lld_setgroupmode>
+  palClearPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
+ 8002840:	f44f 4a80 	mov.w	sl, #16384	; 0x4000
   palSetPadMode(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_MODE_INPUT_PULLUP);
- 800283e:	2220      	movs	r2, #32
- 8002840:	f44f 4100 	mov.w	r1, #32768	; 0x8000
- 8002844:	f7fe f8a4 	bl	8000990 <_pal_lld_setgroupmode>
-  myPrintf("initialzed chip pins\n");
- 8002848:	486c      	ldr	r0, [pc, #432]	; (80029fc <main+0x70c>)
- 800284a:	f7ff f921 	bl	8001a90 <myPrintf>
+ 8002844:	2220      	movs	r2, #32
+ 8002846:	f44f 4100 	mov.w	r1, #32768	; 0x8000
+ 800284a:	f7fe f8a1 	bl	8000990 <_pal_lld_setgroupmode>
+  palClearPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
+ 800284e:	f8a4 901a 	strh.w	r9, [r4, #26]
+  chThdSleepMilliseconds(u32TimeMsec);
+ 8002852:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
+  palClearPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
+ 8002856:	f8a4 a01a 	strh.w	sl, [r4, #26]
+  chThdSleepMilliseconds(u32TimeMsec);
+ 800285a:	f7fe fa39 	bl	8000cd0 <chThdSleep>
   palSetPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
- 800284e:	f8a6 8018 	strh.w	r8, [r6, #24]
-  chThdSleepMilliseconds(10);
- 8002852:	2064      	movs	r0, #100	; 0x64
- 8002854:	f7fe fa3c 	bl	8000cd0 <chThdSleep>
+ 800285e:	f8a4 9018 	strh.w	r9, [r4, #24]
+  chThdSleepMilliseconds(u32TimeMsec);
+ 8002862:	2064      	movs	r0, #100	; 0x64
+ 8002864:	f7fe fa34 	bl	8000cd0 <chThdSleep>
   palSetPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
- 8002858:	f44f 4380 	mov.w	r3, #16384	; 0x4000
- 800285c:	8333      	strh	r3, [r6, #24]
-  myPrintf("reset chip pins\n");
- 800285e:	4868      	ldr	r0, [pc, #416]	; (8002a00 <main+0x710>)
- 8002860:	f7ff f916 	bl	8001a90 <myPrintf>
+ 8002868:	f8a4 a018 	strh.w	sl, [r4, #24]
+  chThdSleepMilliseconds(u32TimeMsec);
+ 800286c:	2064      	movs	r0, #100	; 0x64
+ 800286e:	f7fe fa2f 	bl	8000cd0 <chThdSleep>
   myPrintf("initializing wifi_init\n");
- 8002864:	4867      	ldr	r0, [pc, #412]	; (8002a04 <main+0x714>)
+ 8002872:	4866      	ldr	r0, [pc, #408]	; (8002a0c <main+0x71c>)
   memset((uint8_t *)&param, 0, sizeof(tstrWifiInitParam));
- 8002866:	940d      	str	r4, [sp, #52]	; 0x34
- 8002868:	e9cd 4409 	strd	r4, r4, [sp, #36]	; 0x24
- 800286c:	e9cd 440b 	strd	r4, r4, [sp, #44]	; 0x2c
+ 8002874:	f8cd 8034 	str.w	r8, [sp, #52]	; 0x34
+ 8002878:	e9cd 8809 	strd	r8, r8, [sp, #36]	; 0x24
+ 800287c:	e9cd 880b 	strd	r8, r8, [sp, #44]	; 0x2c
   param.pfAppWifiCb = wifi_cb;
- 8002870:	f8cd a020 	str.w	sl, [sp, #32]
+ 8002880:	9608      	str	r6, [sp, #32]
   myPrintf("initializing wifi_init\n");
- 8002874:	f7ff f90c 	bl	8001a90 <myPrintf>
+ 8002882:	f7ff f905 	bl	8001a90 <myPrintf>
 	gu8scanInProgress = 0;
- 8002878:	4a63      	ldr	r2, [pc, #396]	; (8002a08 <main+0x718>)
+ 8002886:	4a62      	ldr	r2, [pc, #392]	; (8002a10 <main+0x720>)
 	gpfAppWifiCb = param->pfAppWifiCb;
- 800287a:	4b64      	ldr	r3, [pc, #400]	; (8002a0c <main+0x71c>)
+ 8002888:	4b62      	ldr	r3, [pc, #392]	; (8002a14 <main+0x724>)
 	gu8scanInProgress = 0;
- 800287c:	7014      	strb	r4, [r2, #0]
+ 800288a:	f882 8000 	strb.w	r8, [r2]
   palSetPadMode(SPI_WIFI_MISO_PORT, SPI_WIFI_MISO_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
- 800287e:	485e      	ldr	r0, [pc, #376]	; (80029f8 <main+0x708>)
+ 800288e:	485e      	ldr	r0, [pc, #376]	; (8002a08 <main+0x718>)
 	gpfAppWifiCb = param->pfAppWifiCb;
- 8002880:	f8c3 a000 	str.w	sl, [r3]
- 8002884:	f240 229a 	movw	r2, #666	; 0x29a
- 8002888:	2104      	movs	r1, #4
- 800288a:	f7fe f881 	bl	8000990 <_pal_lld_setgroupmode>
+ 8002890:	601e      	str	r6, [r3, #0]
+ 8002892:	f240 229a 	movw	r2, #666	; 0x29a
+ 8002896:	2104      	movs	r1, #4
+ 8002898:	f7fe f87a 	bl	8000990 <_pal_lld_setgroupmode>
   palSetPadMode(SPI_WIFI_MOSI_PORT, SPI_WIFI_MOSI_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
- 800288e:	485a      	ldr	r0, [pc, #360]	; (80029f8 <main+0x708>)
- 8002890:	f240 229a 	movw	r2, #666	; 0x29a
- 8002894:	2108      	movs	r1, #8
- 8002896:	f7fe f87b 	bl	8000990 <_pal_lld_setgroupmode>
-  palSetPadMode(SPI_WIFI_SCK_PORT, SPI_WIFI_SCK_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
- 800289a:	4630      	mov	r0, r6
- 800289c:	f240 229a 	movw	r2, #666	; 0x29a
- 80028a0:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 800289c:	485a      	ldr	r0, [pc, #360]	; (8002a08 <main+0x718>)
+ 800289e:	f240 229a 	movw	r2, #666	; 0x29a
+ 80028a2:	2108      	movs	r1, #8
  80028a4:	f7fe f874 	bl	8000990 <_pal_lld_setgroupmode>
- 80028a8:	2320      	movs	r3, #32
- 80028aa:	f383 8811 	msr	BASEPRI, r3
+  palSetPadMode(SPI_WIFI_SCK_PORT, SPI_WIFI_SCK_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
+ 80028a8:	4620      	mov	r0, r4
+ 80028aa:	f240 229a 	movw	r2, #666	; 0x29a
+ 80028ae:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 80028b2:	f7fe f86d 	bl	8000990 <_pal_lld_setgroupmode>
+ 80028b6:	2320      	movs	r3, #32
+ 80028b8:	f383 8811 	msr	BASEPRI, r3
   if (spip->state == SPI_STOP) {
- 80028ae:	782b      	ldrb	r3, [r5, #0]
+ 80028bc:	782b      	ldrb	r3, [r5, #0]
   spip->config = config;
- 80028b0:	4a57      	ldr	r2, [pc, #348]	; (8002a10 <main+0x720>)
- 80028b2:	606a      	str	r2, [r5, #4]
- 80028b4:	454b      	cmp	r3, r9
- 80028b6:	f000 8251 	beq.w	8002d5c <main+0xa6c>
+ 80028be:	4a56      	ldr	r2, [pc, #344]	; (8002a18 <main+0x728>)
+ 80028c0:	606a      	str	r2, [r5, #4]
+ 80028c2:	2b01      	cmp	r3, #1
+ 80028c4:	f000 824c 	beq.w	8002d60 <main+0xa70>
   if ((spip->config->cr1 & SPI_CR1_DFF) == 0) {
- 80028ba:	214c      	movs	r1, #76	; 0x4c
+ 80028c8:	214c      	movs	r1, #76	; 0x4c
                       STM32_DMA_CR_PSIZE_BYTE | STM32_DMA_CR_MSIZE_BYTE;
- 80028bc:	e9d5 030a 	ldrd	r0, r3, [r5, #40]	; 0x28
+ 80028ca:	e9d5 030a 	ldrd	r0, r3, [r5, #40]	; 0x28
                       STM32_DMA_CR_PSIZE_BYTE | STM32_DMA_CR_MSIZE_BYTE;
- 80028c0:	f420 40f0 	bic.w	r0, r0, #30720	; 0x7800
+ 80028ce:	f420 40f0 	bic.w	r0, r0, #30720	; 0x7800
                       STM32_DMA_CR_PSIZE_BYTE | STM32_DMA_CR_MSIZE_BYTE;
- 80028c4:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 80028d2:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
     spip->txdmamode = (spip->txdmamode & ~STM32_DMA_CR_SIZE_MASK) |
- 80028c8:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
+ 80028d6:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
   if (spip->config->circular) {
- 80028cc:	7813      	ldrb	r3, [r2, #0]
+ 80028da:	7813      	ldrb	r3, [r2, #0]
     spip->rxdmamode |= (STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 80028ce:	6aa8      	ldr	r0, [r5, #40]	; 0x28
+ 80028dc:	6aa8      	ldr	r0, [r5, #40]	; 0x28
   if (spip->config->circular) {
- 80028d0:	2b00      	cmp	r3, #0
- 80028d2:	f000 821c 	beq.w	8002d0e <main+0xa1e>
+ 80028de:	2b00      	cmp	r3, #0
+ 80028e0:	f000 8217 	beq.w	8002d12 <main+0xa22>
     spip->txdmamode |= (STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 80028d6:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
+ 80028e4:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
     spip->rxdmamode |= (STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 80028d8:	f440 7084 	orr.w	r0, r0, #264	; 0x108
+ 80028e6:	f440 7084 	orr.w	r0, r0, #264	; 0x108
     spip->txdmamode |= (STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 80028dc:	f443 7384 	orr.w	r3, r3, #264	; 0x108
- 80028e0:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
+ 80028ea:	f443 7384 	orr.w	r3, r3, #264	; 0x108
+ 80028ee:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
   spip->spi->CR1 &= ~SPI_CR1_SPE;
- 80028e4:	69eb      	ldr	r3, [r5, #28]
+ 80028f2:	69eb      	ldr	r3, [r5, #28]
   spip->spi->CR2  = spip->config->cr2 | SPI_CR2_SSOE | SPI_CR2_RXDMAEN |
- 80028e6:	8a52      	ldrh	r2, [r2, #18]
+ 80028f4:	8a52      	ldrh	r2, [r2, #18]
   spip->spi->CR1 &= ~SPI_CR1_SPE;
- 80028e8:	6818      	ldr	r0, [r3, #0]
+ 80028f6:	6818      	ldr	r0, [r3, #0]
   spip->spi->CR2  = spip->config->cr2 | SPI_CR2_SSOE | SPI_CR2_RXDMAEN |
- 80028ea:	f042 0207 	orr.w	r2, r2, #7
+ 80028f8:	f042 0207 	orr.w	r2, r2, #7
   spip->spi->CR1  = spip->config->cr1 | SPI_CR1_MSTR | SPI_CR1_SSM |
- 80028ee:	f441 7141 	orr.w	r1, r1, #772	; 0x304
+ 80028fc:	f441 7141 	orr.w	r1, r1, #772	; 0x304
   spip->spi->CR1 &= ~SPI_CR1_SPE;
- 80028f2:	f020 0040 	bic.w	r0, r0, #64	; 0x40
- 80028f6:	6018      	str	r0, [r3, #0]
+ 8002900:	f020 0040 	bic.w	r0, r0, #64	; 0x40
+ 8002904:	6018      	str	r0, [r3, #0]
   spip->spi->CR1  = spip->config->cr1 | SPI_CR1_MSTR | SPI_CR1_SSM |
- 80028f8:	6019      	str	r1, [r3, #0]
+ 8002906:	6019      	str	r1, [r3, #0]
   spip->spi->CR2  = spip->config->cr2 | SPI_CR2_SSOE | SPI_CR2_RXDMAEN |
- 80028fa:	605a      	str	r2, [r3, #4]
+ 8002908:	605a      	str	r2, [r3, #4]
   spip->spi->CR1 |= SPI_CR1_SPE;
- 80028fc:	681a      	ldr	r2, [r3, #0]
+ 800290a:	681a      	ldr	r2, [r3, #0]
   spip->state = SPI_READY;
- 80028fe:	2102      	movs	r1, #2
- 8002900:	f042 0240 	orr.w	r2, r2, #64	; 0x40
- 8002904:	601a      	str	r2, [r3, #0]
- 8002906:	2600      	movs	r6, #0
- 8002908:	7029      	strb	r1, [r5, #0]
- 800290a:	f386 8811 	msr	BASEPRI, r6
+ 800290c:	2102      	movs	r1, #2
+ 800290e:	f042 0240 	orr.w	r2, r2, #64	; 0x40
+ 8002912:	601a      	str	r2, [r3, #0]
+ 8002914:	2600      	movs	r6, #0
+ 8002916:	7029      	strb	r1, [r5, #0]
+ 8002918:	f386 8811 	msr	BASEPRI, r6
 	ret = chip_reset();
 	if (M2M_SUCCESS != ret) {
 		goto ERR2;
 	}
 #endif
 	myPrintf("Chip ID %lx\n", nmi_get_chipid());
- 800290e:	f7fe fc7f 	bl	8001210 <nmi_get_chipid>
+ 800291c:	f7fe fc78 	bl	8001210 <nmi_get_chipid>
 	gu8Crc_off = 0;
- 8002912:	4c40      	ldr	r4, [pc, #256]	; (8002a14 <main+0x724>)
- 8002914:	4601      	mov	r1, r0
- 8002916:	4840      	ldr	r0, [pc, #256]	; (8002a18 <main+0x728>)
- 8002918:	f7ff f8ba 	bl	8001a90 <myPrintf>
+ 8002920:	4c3e      	ldr	r4, [pc, #248]	; (8002a1c <main+0x72c>)
+ 8002922:	4601      	mov	r1, r0
+ 8002924:	483e      	ldr	r0, [pc, #248]	; (8002a20 <main+0x730>)
+ 8002926:	f7ff f8b3 	bl	8001a90 <myPrintf>
 	if (!spi_read_reg(NMI_SPI_PROTOCOL_CONFIG, &reg)) {
- 800291c:	a90e      	add	r1, sp, #56	; 0x38
- 800291e:	f64e 0024 	movw	r0, #59428	; 0xe824
+ 800292a:	a90e      	add	r1, sp, #56	; 0x38
+ 800292c:	f64e 0024 	movw	r0, #59428	; 0xe824
 	uint32 reg = 0;
- 8002922:	960e      	str	r6, [sp, #56]	; 0x38
+ 8002930:	960e      	str	r6, [sp, #56]	; 0x38
 	gu8Crc_off = 0;
- 8002924:	7026      	strb	r6, [r4, #0]
+ 8002932:	7026      	strb	r6, [r4, #0]
 	if (!spi_read_reg(NMI_SPI_PROTOCOL_CONFIG, &reg)) {
- 8002926:	f7fe fc1b 	bl	8001160 <spi_read_reg>
- 800292a:	2800      	cmp	r0, #0
- 800292c:	f000 8261 	beq.w	8002df2 <main+0xb02>
+ 8002934:	f7fe fc14 	bl	8001160 <spi_read_reg>
+ 8002938:	2800      	cmp	r0, #0
+ 800293a:	f000 825c 	beq.w	8002df6 <main+0xb06>
 	if(gu8Crc_off == 0)
- 8002930:	7823      	ldrb	r3, [r4, #0]
- 8002932:	2b00      	cmp	r3, #0
- 8002934:	f000 8241 	beq.w	8002dba <main+0xaca>
+ 800293e:	7823      	ldrb	r3, [r4, #0]
+ 8002940:	2b00      	cmp	r3, #0
+ 8002942:	f000 823c 	beq.w	8002dbe <main+0xace>
 	if (!spi_read_reg(0x1000, &chipid)) {
- 8002938:	ae06      	add	r6, sp, #24
- 800293a:	4631      	mov	r1, r6
- 800293c:	f44f 5080 	mov.w	r0, #4096	; 0x1000
- 8002940:	f7fe fc0e 	bl	8001160 <spi_read_reg>
- 8002944:	e001      	b.n	800294a <main+0x65a>
-  chThdSleepMilliseconds(u32TimeMsec);
- 8002946:	f7fe f9c3 	bl	8000cd0 <chThdSleep>
+ 8002946:	ae06      	add	r6, sp, #24
+ 8002948:	4631      	mov	r1, r6
+ 800294a:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+ 800294e:	f7fe fc07 	bl	8001160 <spi_read_reg>
+ 8002952:	e001      	b.n	8002958 <main+0x668>
+ 8002954:	f7fe f9bc 	bl	8000cd0 <chThdSleep>
 	spi_read_reg(u32Addr, &u32Val);
- 800294a:	a90e      	add	r1, sp, #56	; 0x38
- 800294c:	f241 0014 	movw	r0, #4116	; 0x1014
- 8002950:	f7fe fc06 	bl	8001160 <spi_read_reg>
+ 8002958:	a90e      	add	r1, sp, #56	; 0x38
+ 800295a:	f241 0014 	movw	r0, #4116	; 0x1014
+ 800295e:	f7fe fbff 	bl	8001160 <spi_read_reg>
 	return u32Val;
- 8002954:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 8002962:	9b0e      	ldr	r3, [sp, #56]	; 0x38
 
 
 	reg = 0;
 	while(1) {
 		reg = nm_read_reg(0x1014);	/* wait for efuse loading done */
 		if (reg & 0x80000000) {
- 8002956:	2b00      	cmp	r3, #0
- 8002958:	f04f 000a 	mov.w	r0, #10
- 800295c:	daf3      	bge.n	8002946 <main+0x656>
+ 8002964:	2b00      	cmp	r3, #0
+ 8002966:	f04f 000a 	mov.w	r0, #10
+ 800296a:	daf3      	bge.n	8002954 <main+0x664>
 	spi_read_reg(u32Addr, &u32Val);
- 800295e:	482f      	ldr	r0, [pc, #188]	; (8002a1c <main+0x72c>)
- 8002960:	a90e      	add	r1, sp, #56	; 0x38
- 8002962:	f7fe fbfd 	bl	8001160 <spi_read_reg>
+ 800296c:	482d      	ldr	r0, [pc, #180]	; (8002a24 <main+0x734>)
+ 800296e:	a90e      	add	r1, sp, #56	; 0x38
+ 8002970:	f7fe fbf6 	bl	8001160 <spi_read_reg>
 	return u32Val;
- 8002966:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 8002974:	9b0e      	ldr	r3, [sp, #56]	; 0x38
 	}
 	reg = nm_read_reg(M2M_WAIT_FOR_HOST_REG);
 	reg &= 0x1;
 
 	/* check if waiting for the host will be skipped or not */
 	if(reg == 0)
- 8002968:	07da      	lsls	r2, r3, #31
- 800296a:	d41b      	bmi.n	80029a4 <main+0x6b4>
- 800296c:	200a      	movs	r0, #10
- 800296e:	f7fe f9af 	bl	8000cd0 <chThdSleep>
+ 8002976:	07da      	lsls	r2, r3, #31
+ 8002978:	d41b      	bmi.n	80029b2 <main+0x6c2>
+ 800297a:	200a      	movs	r0, #10
+ 800297c:	f7fe f9a8 	bl	8000cd0 <chThdSleep>
 	spi_read_reg(u32Addr, &u32Val);
- 8002972:	a90e      	add	r1, sp, #56	; 0x38
- 8002974:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
- 8002978:	f7fe fbf2 	bl	8001160 <spi_read_reg>
+ 8002980:	a90e      	add	r1, sp, #56	; 0x38
+ 8002982:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
+ 8002986:	f7fe fbeb 	bl	8001160 <spi_read_reg>
 	{
 		reg = 0;
 		while(reg != M2M_FINISH_BOOT_ROM)
- 800297c:	4d28      	ldr	r5, [pc, #160]	; (8002a20 <main+0x730>)
+ 800298a:	4d27      	ldr	r5, [pc, #156]	; (8002a28 <main+0x738>)
 	return u32Val;
- 800297e:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 800298c:	9b0e      	ldr	r3, [sp, #56]	; 0x38
 		{
 			nm_bsp_sleep(1);
 			reg = nm_read_reg(BOOTROM_REG);
 
 			if(++cnt > (uint32)TIMEOUT)
- 8002980:	f644 6420 	movw	r4, #20000	; 0x4e20
- 8002984:	e00a      	b.n	800299c <main+0x6ac>
- 8002986:	f7fe f9a3 	bl	8000cd0 <chThdSleep>
+ 800298e:	f644 6420 	movw	r4, #20000	; 0x4e20
+ 8002992:	e00a      	b.n	80029aa <main+0x6ba>
+ 8002994:	f7fe f99c 	bl	8000cd0 <chThdSleep>
 	spi_read_reg(u32Addr, &u32Val);
- 800298a:	a90e      	add	r1, sp, #56	; 0x38
- 800298c:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
- 8002990:	f7fe fbe6 	bl	8001160 <spi_read_reg>
- 8002994:	3c01      	subs	r4, #1
+ 8002998:	a90e      	add	r1, sp, #56	; 0x38
+ 800299a:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
+ 800299e:	f7fe fbdf 	bl	8001160 <spi_read_reg>
+ 80029a2:	3c01      	subs	r4, #1
 	return u32Val;
- 8002996:	9b0e      	ldr	r3, [sp, #56]	; 0x38
- 8002998:	f000 8224 	beq.w	8002de4 <main+0xaf4>
+ 80029a4:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 80029a6:	f000 821f 	beq.w	8002de8 <main+0xaf8>
 		while(reg != M2M_FINISH_BOOT_ROM)
- 800299c:	42ab      	cmp	r3, r5
- 800299e:	f04f 000a 	mov.w	r0, #10
- 80029a2:	d1f0      	bne.n	8002986 <main+0x696>
+ 80029aa:	42ab      	cmp	r3, r5
+ 80029ac:	f04f 000a 	mov.w	r0, #10
+ 80029b0:	d1f0      	bne.n	8002994 <main+0x6a4>
 	}else if(M2M_WIFI_MODE_ETHERNET == arg){
 		u32GpReg1 = rHAVE_ETHERNET_MODE_BIT;
 		nm_write_reg(NMI_STATE_REG, u32DriverVerInfo);
 	} else {
 		/*bypass this step*/
 		nm_write_reg(NMI_STATE_REG, u32DriverVerInfo);
- 80029a4:	491f      	ldr	r1, [pc, #124]	; (8002a24 <main+0x734>)
- 80029a6:	f241 008c 	movw	r0, #4236	; 0x108c
- 80029aa:	f7fe fda1 	bl	80014f0 <nm_write_reg>
+ 80029b2:	491e      	ldr	r1, [pc, #120]	; (8002a2c <main+0x73c>)
+ 80029b4:	f241 008c 	movw	r0, #4236	; 0x108c
+ 80029b8:	f7fe fd9a 	bl	80014f0 <nm_write_reg>
 	}
 
 	if(REV(nmi_get_chipid()) >= REV_3A0){
- 80029ae:	f7fe fc2f 	bl	8001210 <nmi_get_chipid>
- 80029b2:	f3c0 030b 	ubfx	r3, r0, #0, #12
- 80029b6:	f5b3 7f68 	cmp.w	r3, #928	; 0x3a0
- 80029ba:	f0c0 820f 	bcc.w	8002ddc <main+0xaec>
+ 80029bc:	f7fe fc28 	bl	8001210 <nmi_get_chipid>
+ 80029c0:	f3c0 030b 	ubfx	r3, r0, #0, #12
+ 80029c4:	f5b3 7f68 	cmp.w	r3, #928	; 0x3a0
+ 80029c8:	f0c0 820a 	bcc.w	8002de0 <main+0xaf0>
 		chip_apply_conf(u32GpReg1 | rHAVE_USE_PMU_BIT);
- 80029be:	2002      	movs	r0, #2
- 80029c0:	f7fe fd9e 	bl	8001500 <chip_apply_conf>
+ 80029cc:	2002      	movs	r0, #2
+ 80029ce:	f7fe fd97 	bl	8001500 <chip_apply_conf>
 	} else {
 		chip_apply_conf(u32GpReg1);
 	}
 	M2M_INFO("DriverVerInfo: 0x%08lx\n",u32DriverVerInfo);
 
 	nm_write_reg(BOOTROM_REG,M2M_START_FIRMWARE);
- 80029c4:	4918      	ldr	r1, [pc, #96]	; (8002a28 <main+0x738>)
- 80029c6:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
- 80029ca:	f7fe fd91 	bl	80014f0 <nm_write_reg>
+ 80029d2:	4917      	ldr	r1, [pc, #92]	; (8002a30 <main+0x740>)
+ 80029d4:	f04f 100c 	mov.w	r0, #786444	; 0xc000c
+ 80029d8:	f7fe fd8a 	bl	80014f0 <nm_write_reg>
 {
 	sint8 ret = M2M_SUCCESS;
 	uint32 reg = 0, cnt = 0;
 	uint32 u32Timeout = TIMEOUT;
 	volatile uint32 regAddress = NMI_STATE_REG;
 	volatile uint32 checkValue = M2M_FINISH_INIT_STATE;
- 80029ce:	4b17      	ldr	r3, [pc, #92]	; (8002a2c <main+0x73c>)
+ 80029dc:	4b15      	ldr	r3, [pc, #84]	; (8002a34 <main+0x744>)
 	volatile uint32 regAddress = NMI_STATE_REG;
- 80029d0:	f241 028c 	movw	r2, #4236	; 0x108c
- 80029d4:	9203      	str	r2, [sp, #12]
+ 80029de:	f241 028c 	movw	r2, #4236	; 0x108c
+ 80029e2:	9203      	str	r2, [sp, #12]
 	volatile uint32 checkValue = M2M_FINISH_INIT_STATE;
- 80029d6:	f644 6420 	movw	r4, #20000	; 0x4e20
- 80029da:	9304      	str	r3, [sp, #16]
+ 80029e4:	f644 6420 	movw	r4, #20000	; 0x4e20
+ 80029e8:	9304      	str	r3, [sp, #16]
 
 	if((M2M_WIFI_MODE_ATE_HIGH == arg)||(M2M_WIFI_MODE_ATE_LOW == arg)) {
- 80029dc:	e034      	b.n	8002a48 <main+0x758>
- 80029de:	bf00      	nop
- 80029e0:	40023800 	.word	0x40023800
- 80029e4:	e000e100 	.word	0xe000e100
- 80029e8:	40011000 	.word	0x40011000
- 80029ec:	08003bc0 	.word	0x08003bc0
- 80029f0:	40020400 	.word	0x40020400
- 80029f4:	08003bcc 	.word	0x08003bcc
- 80029f8:	40020800 	.word	0x40020800
- 80029fc:	08003be4 	.word	0x08003be4
- 8002a00:	08003bfc 	.word	0x08003bfc
- 8002a04:	08003c10 	.word	0x08003c10
- 8002a08:	20000c22 	.word	0x20000c22
- 8002a0c:	20000bf4 	.word	0x20000bf4
- 8002a10:	08003f88 	.word	0x08003f88
- 8002a14:	20000c21 	.word	0x20000c21
- 8002a18:	08003c28 	.word	0x08003c28
- 8002a1c:	000207bc 	.word	0x000207bc
- 8002a20:	10add09e 	.word	0x10add09e
- 8002a24:	13541354 	.word	0x13541354
- 8002a28:	ef522f61 	.word	0xef522f61
- 8002a2c:	02532636 	.word	0x02532636
- 8002a30:	08001f51 	.word	0x08001f51
- 8002a34:	f7fe f94c 	bl	8000cd0 <chThdSleep>
+ 80029ea:	e02f      	b.n	8002a4c <main+0x75c>
+ 80029ec:	40023800 	.word	0x40023800
+ 80029f0:	e000e100 	.word	0xe000e100
+ 80029f4:	40011000 	.word	0x40011000
+ 80029f8:	08003bc0 	.word	0x08003bc0
+ 80029fc:	40020400 	.word	0x40020400
+ 8002a00:	08001f51 	.word	0x08001f51
+ 8002a04:	08003bcc 	.word	0x08003bcc
+ 8002a08:	40020800 	.word	0x40020800
+ 8002a0c:	08003be4 	.word	0x08003be4
+ 8002a10:	20000c22 	.word	0x20000c22
+ 8002a14:	20000bf4 	.word	0x20000bf4
+ 8002a18:	08003f5c 	.word	0x08003f5c
+ 8002a1c:	20000c21 	.word	0x20000c21
+ 8002a20:	08003bfc 	.word	0x08003bfc
+ 8002a24:	000207bc 	.word	0x000207bc
+ 8002a28:	10add09e 	.word	0x10add09e
+ 8002a2c:	13541354 	.word	0x13541354
+ 8002a30:	ef522f61 	.word	0xef522f61
+ 8002a34:	02532636 	.word	0x02532636
+ 8002a38:	f7fe f94a 	bl	8000cd0 <chThdSleep>
 
 	while (checkValue != reg)
 	{
 		nm_bsp_sleep(2); /* TODO: Why bus error if this delay is not here. */
 		M2M_DBG("%x %x %x\n",(unsigned int)nm_read_reg(0x108c),(unsigned int)nm_read_reg(0x108c),(unsigned int)nm_read_reg(0x14A0));
 		reg = nm_read_reg(regAddress);
- 8002a38:	9803      	ldr	r0, [sp, #12]
+ 8002a3c:	9803      	ldr	r0, [sp, #12]
 	spi_read_reg(u32Addr, &u32Val);
- 8002a3a:	a90e      	add	r1, sp, #56	; 0x38
- 8002a3c:	f7fe fb90 	bl	8001160 <spi_read_reg>
+ 8002a3e:	a90e      	add	r1, sp, #56	; 0x38
+ 8002a40:	f7fe fb8e 	bl	8001160 <spi_read_reg>
 		if(++cnt >= u32Timeout)
- 8002a40:	3c01      	subs	r4, #1
+ 8002a44:	3c01      	subs	r4, #1
 	return u32Val;
- 8002a42:	9f0e      	ldr	r7, [sp, #56]	; 0x38
- 8002a44:	f000 81ce 	beq.w	8002de4 <main+0xaf4>
+ 8002a46:	9f0e      	ldr	r7, [sp, #56]	; 0x38
+ 8002a48:	f000 81ce 	beq.w	8002de8 <main+0xaf8>
 	while (checkValue != reg)
- 8002a48:	9b04      	ldr	r3, [sp, #16]
- 8002a4a:	42bb      	cmp	r3, r7
- 8002a4c:	f04f 0014 	mov.w	r0, #20
- 8002a50:	d1f0      	bne.n	8002a34 <main+0x744>
+ 8002a4c:	9b04      	ldr	r3, [sp, #16]
+ 8002a4e:	42bb      	cmp	r3, r7
+ 8002a50:	f04f 0014 	mov.w	r0, #20
+ 8002a54:	d1f0      	bne.n	8002a38 <main+0x748>
 			M2M_DBG("Time out for wait firmware Run\n");
 			ret = M2M_ERR_INIT;
 			goto ERR;
 		}
 	}
 	if(M2M_FINISH_INIT_STATE == checkValue)
- 8002a52:	9a04      	ldr	r2, [sp, #16]
- 8002a54:	4bb2      	ldr	r3, [pc, #712]	; (8002d20 <main+0xa30>)
- 8002a56:	429a      	cmp	r2, r3
- 8002a58:	f000 81d7 	beq.w	8002e0a <main+0xb1a>
+ 8002a56:	9a04      	ldr	r2, [sp, #16]
+ 8002a58:	4bb2      	ldr	r3, [pc, #712]	; (8002d24 <main+0xa34>)
+ 8002a5a:	429a      	cmp	r2, r3
+ 8002a5c:	f000 81d7 	beq.w	8002e0e <main+0xb1e>
 	uint32 reg = 0;
- 8002a5c:	2300      	movs	r3, #0
+ 8002a60:	2300      	movs	r3, #0
 	return nm_spi_read_reg_with_ret(u32Addr,pu32RetVal);
- 8002a5e:	a90e      	add	r1, sp, #56	; 0x38
- 8002a60:	f241 4008 	movw	r0, #5128	; 0x1408
- 8002a64:	930e      	str	r3, [sp, #56]	; 0x38
- 8002a66:	f7fe fbc3 	bl	80011f0 <nm_spi_read_reg_with_ret>
+ 8002a62:	a90e      	add	r1, sp, #56	; 0x38
+ 8002a64:	f241 4008 	movw	r0, #5128	; 0x1408
+ 8002a68:	930e      	str	r3, [sp, #56]	; 0x38
+ 8002a6a:	f7fe fbc1 	bl	80011f0 <nm_spi_read_reg_with_ret>
 	if (M2M_SUCCESS != ret) goto ERR1;
- 8002a6a:	4605      	mov	r5, r0
- 8002a6c:	2800      	cmp	r0, #0
- 8002a6e:	f040 81bb 	bne.w	8002de8 <main+0xaf8>
+ 8002a6e:	4605      	mov	r5, r0
+ 8002a70:	2800      	cmp	r0, #0
+ 8002a72:	f040 81bb 	bne.w	8002dec <main+0xafc>
 	reg |= ((uint32) 1 << 8);
- 8002a72:	990e      	ldr	r1, [sp, #56]	; 0x38
+ 8002a76:	990e      	ldr	r1, [sp, #56]	; 0x38
 	return nm_spi_write_reg(u32Addr,u32Val);
- 8002a74:	f241 4008 	movw	r0, #5128	; 0x1408
- 8002a78:	f441 7180 	orr.w	r1, r1, #256	; 0x100
- 8002a7c:	910e      	str	r1, [sp, #56]	; 0x38
- 8002a7e:	f7fe fd27 	bl	80014d0 <nm_spi_write_reg>
+ 8002a78:	f241 4008 	movw	r0, #5128	; 0x1408
+ 8002a7c:	f441 7180 	orr.w	r1, r1, #256	; 0x100
+ 8002a80:	910e      	str	r1, [sp, #56]	; 0x38
+ 8002a82:	f7fe fd25 	bl	80014d0 <nm_spi_write_reg>
 	if (M2M_SUCCESS != ret) goto ERR1;
- 8002a82:	4605      	mov	r5, r0
- 8002a84:	2800      	cmp	r0, #0
- 8002a86:	f040 81af 	bne.w	8002de8 <main+0xaf8>
+ 8002a86:	4605      	mov	r5, r0
+ 8002a88:	2800      	cmp	r0, #0
+ 8002a8a:	f040 81af 	bne.w	8002dec <main+0xafc>
 	return nm_spi_read_reg_with_ret(u32Addr,pu32RetVal);
- 8002a8a:	a90e      	add	r1, sp, #56	; 0x38
- 8002a8c:	f44f 50d0 	mov.w	r0, #6656	; 0x1a00
- 8002a90:	f7fe fbae 	bl	80011f0 <nm_spi_read_reg_with_ret>
+ 8002a8e:	a90e      	add	r1, sp, #56	; 0x38
+ 8002a90:	f44f 50d0 	mov.w	r0, #6656	; 0x1a00
+ 8002a94:	f7fe fbac 	bl	80011f0 <nm_spi_read_reg_with_ret>
 	if (M2M_SUCCESS != ret) goto ERR1;
- 8002a94:	4605      	mov	r5, r0
- 8002a96:	2800      	cmp	r0, #0
- 8002a98:	f040 81a6 	bne.w	8002de8 <main+0xaf8>
+ 8002a98:	4605      	mov	r5, r0
+ 8002a9a:	2800      	cmp	r0, #0
+ 8002a9c:	f040 81a6 	bne.w	8002dec <main+0xafc>
 	reg |= ((uint32) 1 << 16);
- 8002a9c:	990e      	ldr	r1, [sp, #56]	; 0x38
+ 8002aa0:	990e      	ldr	r1, [sp, #56]	; 0x38
 	return nm_spi_write_reg(u32Addr,u32Val);
- 8002a9e:	f44f 50d0 	mov.w	r0, #6656	; 0x1a00
- 8002aa2:	f441 3180 	orr.w	r1, r1, #65536	; 0x10000
- 8002aa6:	910e      	str	r1, [sp, #56]	; 0x38
- 8002aa8:	f7fe fd12 	bl	80014d0 <nm_spi_write_reg>
+ 8002aa2:	f44f 50d0 	mov.w	r0, #6656	; 0x1a00
+ 8002aa6:	f441 3180 	orr.w	r1, r1, #65536	; 0x10000
+ 8002aaa:	910e      	str	r1, [sp, #56]	; 0x38
+ 8002aac:	f7fe fd10 	bl	80014d0 <nm_spi_write_reg>
 	if(ret != M2M_SUCCESS) 	goto _EXIT0;
- 8002aac:	4605      	mov	r5, r0
- 8002aae:	2800      	cmp	r0, #0
- 8002ab0:	f040 819a 	bne.w	8002de8 <main+0xaf8>
- 8002ab4:	4c9b      	ldr	r4, [pc, #620]	; (8002d24 <main+0xa34>)
- 8002ab6:	4623      	mov	r3, r4
- 8002ab8:	f104 0228 	add.w	r2, r4, #40	; 0x28
+ 8002ab0:	4605      	mov	r5, r0
+ 8002ab2:	2800      	cmp	r0, #0
+ 8002ab4:	f040 819a 	bne.w	8002dec <main+0xafc>
+ 8002ab8:	4c9b      	ldr	r4, [pc, #620]	; (8002d28 <main+0xa38>)
+ 8002aba:	4623      	mov	r3, r4
+ 8002abc:	f104 0228 	add.w	r2, r4, #40	; 0x28
 		*pBuf = val;
- 8002abc:	f803 5b01 	strb.w	r5, [r3], #1
+ 8002ac0:	f803 5b01 	strb.w	r5, [r3], #1
 	}while(--sz);
- 8002ac0:	4293      	cmp	r3, r2
- 8002ac2:	d1fb      	bne.n	8002abc <main+0x7cc>
- 8002ac4:	2320      	movs	r3, #32
- 8002ac6:	f383 8811 	msr	BASEPRI, r3
+ 8002ac4:	4293      	cmp	r3, r2
+ 8002ac6:	d1fb      	bne.n	8002ac0 <main+0x7d0>
+ 8002ac8:	2320      	movs	r3, #32
+ 8002aca:	f383 8811 	msr	BASEPRI, r3
   palEnablePadEvent(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_EVENT_MODE_FALLING_EDGE);
- 8002aca:	f7fd fd81 	bl	80005d0 <_pal_lld_enablepadevent.constprop.0>
- 8002ace:	f385 8811 	msr	BASEPRI, r5
+ 8002ace:	f7fd fd7f 	bl	80005d0 <_pal_lld_enablepadevent.constprop.0>
+ 8002ad2:	f385 8811 	msr	BASEPRI, r5
 	tstrGpRegs strgp = {0};
- 8002ad2:	e9cd 5505 	strd	r5, r5, [sp, #20]
+ 8002ad6:	e9cd 5505 	strd	r5, r5, [sp, #20]
 			break;
 		case M2M_REQ_GROUP_OTA:
 			gstrHifCxt.pfOtaCb = fn;
 			break;
 		case M2M_REQ_GROUP_HIF:
 			gstrHifCxt.pfHifCb = fn;
- 8002ad6:	4b94      	ldr	r3, [pc, #592]	; (8002d28 <main+0xa38>)
+ 8002ada:	4b94      	ldr	r3, [pc, #592]	; (8002d2c <main+0xa3c>)
 			gstrHifCxt.pfWifiCb = fn;
- 8002ad8:	4a94      	ldr	r2, [pc, #592]	; (8002d2c <main+0xa3c>)
+ 8002adc:	4a94      	ldr	r2, [pc, #592]	; (8002d30 <main+0xa40>)
 			gstrHifCxt.pfHifCb = fn;
- 8002ada:	61e3      	str	r3, [r4, #28]
- 8002adc:	6075      	str	r5, [r6, #4]
+ 8002ade:	61e3      	str	r3, [r4, #28]
+ 8002ae0:	6075      	str	r5, [r6, #4]
 			gstrHifCxt.pfWifiCb = fn;
- 8002ade:	60e2      	str	r2, [r4, #12]
- 8002ae0:	ab0e      	add	r3, sp, #56	; 0x38
+ 8002ae2:	60e2      	str	r2, [r4, #12]
+ 8002ae4:	ab0e      	add	r3, sp, #56	; 0x38
 		*pBuf = val;
- 8002ae2:	2200      	movs	r2, #0
- 8002ae4:	f803 2b01 	strb.w	r2, [r3], #1
+ 8002ae6:	2200      	movs	r2, #0
+ 8002ae8:	f803 2b01 	strb.w	r2, [r3], #1
 	}while(--sz);
- 8002ae8:	a918      	add	r1, sp, #96	; 0x60
- 8002aea:	428b      	cmp	r3, r1
- 8002aec:	d1fa      	bne.n	8002ae4 <main+0x7f4>
+ 8002aec:	a918      	add	r1, sp, #96	; 0x60
+ 8002aee:	428b      	cmp	r3, r1
+ 8002af0:	d1fa      	bne.n	8002ae8 <main+0x7f8>
 	return nm_spi_read_reg_with_ret(u32Addr,pu32RetVal);
- 8002aee:	4890      	ldr	r0, [pc, #576]	; (8002d30 <main+0xa40>)
- 8002af0:	a905      	add	r1, sp, #20
- 8002af2:	f7fe fb7d 	bl	80011f0 <nm_spi_read_reg_with_ret>
+ 8002af2:	4890      	ldr	r0, [pc, #576]	; (8002d34 <main+0xa44>)
+ 8002af4:	a905      	add	r1, sp, #20
+ 8002af6:	f7fe fb7b 	bl	80011f0 <nm_spi_read_reg_with_ret>
 		if(ret == M2M_SUCCESS)
- 8002af6:	4605      	mov	r5, r0
- 8002af8:	2800      	cmp	r0, #0
- 8002afa:	f040 81c8 	bne.w	8002e8e <main+0xb9e>
+ 8002afa:	4605      	mov	r5, r0
+ 8002afc:	2800      	cmp	r0, #0
+ 8002afe:	f040 81c8 	bne.w	8002e92 <main+0xba2>
 			if(reg != 0)
- 8002afe:	9805      	ldr	r0, [sp, #20]
- 8002b00:	2800      	cmp	r0, #0
- 8002b02:	f000 81bb 	beq.w	8002e7c <main+0xb8c>
+ 8002b02:	9805      	ldr	r0, [sp, #20]
+ 8002b04:	2800      	cmp	r0, #0
+ 8002b06:	f000 81bb 	beq.w	8002e80 <main+0xb90>
 				ret = nm_read_block(reg|0x30000,(uint8*)&strgp,sizeof(tstrGpRegs));
- 8002b06:	f440 3040 	orr.w	r0, r0, #196608	; 0x30000
- 8002b0a:	2208      	movs	r2, #8
- 8002b0c:	4631      	mov	r1, r6
- 8002b0e:	f7fe faff 	bl	8001110 <nm_read_block>
+ 8002b0a:	f440 3040 	orr.w	r0, r0, #196608	; 0x30000
+ 8002b0e:	2208      	movs	r2, #8
+ 8002b10:	4631      	mov	r1, r6
+ 8002b12:	f7fe fafd 	bl	8001110 <nm_read_block>
 				if(ret == M2M_SUCCESS)
- 8002b12:	4605      	mov	r5, r0
- 8002b14:	2800      	cmp	r0, #0
- 8002b16:	f040 81ba 	bne.w	8002e8e <main+0xb9e>
+ 8002b16:	4605      	mov	r5, r0
+ 8002b18:	2800      	cmp	r0, #0
+ 8002b1a:	f040 81ba 	bne.w	8002e92 <main+0xba2>
 					reg &= 0x0000ffff;
- 8002b1a:	f8bd 001c 	ldrh.w	r0, [sp, #28]
- 8002b1e:	9005      	str	r0, [sp, #20]
+ 8002b1e:	f8bd 001c 	ldrh.w	r0, [sp, #28]
+ 8002b22:	9005      	str	r0, [sp, #20]
 					if(reg != 0)
- 8002b20:	2800      	cmp	r0, #0
- 8002b22:	f000 81ab 	beq.w	8002e7c <main+0xb8c>
+ 8002b24:	2800      	cmp	r0, #0
+ 8002b26:	f000 81ab 	beq.w	8002e80 <main+0xb90>
 						ret = nm_read_block(reg|0x30000,(uint8*)pstrRev,sizeof(tstrM2mRev));
- 8002b26:	f440 3040 	orr.w	r0, r0, #196608	; 0x30000
- 8002b2a:	2228      	movs	r2, #40	; 0x28
- 8002b2c:	a90e      	add	r1, sp, #56	; 0x38
- 8002b2e:	f7fe faef 	bl	8001110 <nm_read_block>
+ 8002b2a:	f440 3040 	orr.w	r0, r0, #196608	; 0x30000
+ 8002b2e:	2228      	movs	r2, #40	; 0x28
+ 8002b30:	a90e      	add	r1, sp, #56	; 0x38
+ 8002b32:	f7fe faed 	bl	8001110 <nm_read_block>
 						if(ret == M2M_SUCCESS)
- 8002b32:	4605      	mov	r5, r0
- 8002b34:	2800      	cmp	r0, #0
- 8002b36:	f040 81aa 	bne.w	8002e8e <main+0xb9e>
+ 8002b36:	4605      	mov	r5, r0
+ 8002b38:	2800      	cmp	r0, #0
+ 8002b3a:	f040 81aa 	bne.w	8002e92 <main+0xba2>
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b3a:	f89d 0041 	ldrb.w	r0, [sp, #65]	; 0x41
- 8002b3e:	f89d e03f 	ldrb.w	lr, [sp, #63]	; 0x3f
+ 8002b3e:	f89d 0041 	ldrb.w	r0, [sp, #65]	; 0x41
+ 8002b42:	f89d e03f 	ldrb.w	lr, [sp, #63]	; 0x3f
 							curr_firm_ver   = M2M_MAKE_VERSION(pstrRev->u8FirmwareMajor, pstrRev->u8FirmwareMinor,pstrRev->u8FirmwarePatch);
- 8002b42:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
- 8002b46:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
+ 8002b46:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
+ 8002b4a:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b4a:	f89d c040 	ldrb.w	ip, [sp, #64]	; 0x40
+ 8002b4e:	f89d c040 	ldrb.w	ip, [sp, #64]	; 0x40
 							curr_firm_ver   = M2M_MAKE_VERSION(pstrRev->u8FirmwareMajor, pstrRev->u8FirmwareMinor,pstrRev->u8FirmwarePatch);
- 8002b4e:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
+ 8002b52:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b52:	f000 000f 	and.w	r0, r0, #15
- 8002b56:	ea40 200e 	orr.w	r0, r0, lr, lsl #8
+ 8002b56:	f000 000f 	and.w	r0, r0, #15
+ 8002b5a:	ea40 200e 	orr.w	r0, r0, lr, lsl #8
 							curr_firm_ver   = M2M_MAKE_VERSION(pstrRev->u8FirmwareMajor, pstrRev->u8FirmwareMinor,pstrRev->u8FirmwarePatch);
- 8002b5a:	f003 070f 	and.w	r7, r3, #15
- 8002b5e:	ea4f 1e02 	mov.w	lr, r2, lsl #4
+ 8002b5e:	f003 070f 	and.w	r7, r3, #15
+ 8002b62:	ea4f 1e02 	mov.w	lr, r2, lsl #4
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b62:	ea4f 1c0c 	mov.w	ip, ip, lsl #4
+ 8002b66:	ea4f 1c0c 	mov.w	ip, ip, lsl #4
 							curr_firm_ver   = M2M_MAKE_VERSION(pstrRev->u8FirmwareMajor, pstrRev->u8FirmwareMinor,pstrRev->u8FirmwarePatch);
- 8002b66:	ea47 2701 	orr.w	r7, r7, r1, lsl #8
- 8002b6a:	fa5f fe8e 	uxtb.w	lr, lr
+ 8002b6a:	ea47 2701 	orr.w	r7, r7, r1, lsl #8
+ 8002b6e:	fa5f fe8e 	uxtb.w	lr, lr
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b6e:	fa5f fc8c 	uxtb.w	ip, ip
+ 8002b72:	fa5f fc8c 	uxtb.w	ip, ip
 							if((curr_firm_ver == 0)||(min_req_drv_ver == 0)||(min_req_drv_ver == 0)){
- 8002b72:	ea57 070e 	orrs.w	r7, r7, lr
+ 8002b76:	ea57 070e 	orrs.w	r7, r7, lr
 							min_req_drv_ver = M2M_MAKE_VERSION(pstrRev->u8DriverMajor, pstrRev->u8DriverMinor,pstrRev->u8DriverPatch);
- 8002b76:	ea40 000c 	orr.w	r0, r0, ip
+ 8002b7a:	ea40 000c 	orr.w	r0, r0, ip
 							if((curr_firm_ver == 0)||(min_req_drv_ver == 0)||(min_req_drv_ver == 0)){
- 8002b7a:	f000 8185 	beq.w	8002e88 <main+0xb98>
- 8002b7e:	2800      	cmp	r0, #0
- 8002b80:	f000 8182 	beq.w	8002e88 <main+0xb98>
+ 8002b7e:	f000 8185 	beq.w	8002e8c <main+0xb9c>
+ 8002b82:	2800      	cmp	r0, #0
+ 8002b84:	f000 8182 	beq.w	8002e8c <main+0xb9c>
 							if(curr_drv_ver <  min_req_drv_ver) {
- 8002b84:	f241 3c54 	movw	ip, #4948	; 0x1354
- 8002b88:	4560      	cmp	r0, ip
- 8002b8a:	f200 8174 	bhi.w	8002e76 <main+0xb86>
+ 8002b88:	f241 3c54 	movw	ip, #4948	; 0x1354
+ 8002b8c:	4560      	cmp	r0, ip
+ 8002b8e:	f200 8174 	bhi.w	8002e7a <main+0xb8a>
 							if(curr_drv_ver >  curr_firm_ver) {
- 8002b8e:	f241 3053 	movw	r0, #4947	; 0x1353
+ 8002b92:	f241 3053 	movw	r0, #4947	; 0x1353
 								ret = M2M_ERR_FW_VER_MISMATCH;
- 8002b92:	4287      	cmp	r7, r0
- 8002b94:	bf98      	it	ls
- 8002b96:	f06f 050c 	mvnls.w	r5, #12
+ 8002b96:	4287      	cmp	r7, r0
+ 8002b98:	bf98      	it	ls
+ 8002b9a:	f06f 050c 	mvnls.w	r5, #12
 	myPrintf("Firmware ver   : %u.%u.%u Svnrev %u\n", strtmp.u8FirmwareMajor, strtmp.u8FirmwareMinor, strtmp.u8FirmwarePatch,strtmp.u16FirmwareSvnNum);
- 8002b9a:	f8bd 0058 	ldrh.w	r0, [sp, #88]	; 0x58
- 8002b9e:	9000      	str	r0, [sp, #0]
- 8002ba0:	4864      	ldr	r0, [pc, #400]	; (8002d34 <main+0xa44>)
- 8002ba2:	f7fe ff75 	bl	8001a90 <myPrintf>
+ 8002b9e:	f8bd 0058 	ldrh.w	r0, [sp, #88]	; 0x58
+ 8002ba2:	9000      	str	r0, [sp, #0]
+ 8002ba4:	4864      	ldr	r0, [pc, #400]	; (8002d38 <main+0xa48>)
+ 8002ba6:	f7fe ff73 	bl	8001a90 <myPrintf>
 	myPrintf("Firmware Build %s Time %s\n",strtmp.BuildDate,strtmp.BuildTime);
- 8002ba6:	f10d 024e 	add.w	r2, sp, #78	; 0x4e
- 8002baa:	f10d 0142 	add.w	r1, sp, #66	; 0x42
- 8002bae:	4862      	ldr	r0, [pc, #392]	; (8002d38 <main+0xa48>)
- 8002bb0:	f7fe ff6e 	bl	8001a90 <myPrintf>
+ 8002baa:	f10d 024e 	add.w	r2, sp, #78	; 0x4e
+ 8002bae:	f10d 0142 	add.w	r1, sp, #66	; 0x42
+ 8002bb2:	4862      	ldr	r0, [pc, #392]	; (8002d3c <main+0xa4c>)
+ 8002bb4:	f7fe ff6c 	bl	8001a90 <myPrintf>
 	myPrintf("Firmware Min driver ver : %u.%u.%u\n", strtmp.u8DriverMajor, strtmp.u8DriverMinor, strtmp.u8DriverPatch);
- 8002bb4:	f89d 3041 	ldrb.w	r3, [sp, #65]	; 0x41
- 8002bb8:	f89d 2040 	ldrb.w	r2, [sp, #64]	; 0x40
- 8002bbc:	f89d 103f 	ldrb.w	r1, [sp, #63]	; 0x3f
- 8002bc0:	485e      	ldr	r0, [pc, #376]	; (8002d3c <main+0xa4c>)
- 8002bc2:	f7fe ff65 	bl	8001a90 <myPrintf>
+ 8002bb8:	f89d 3041 	ldrb.w	r3, [sp, #65]	; 0x41
+ 8002bbc:	f89d 2040 	ldrb.w	r2, [sp, #64]	; 0x40
+ 8002bc0:	f89d 103f 	ldrb.w	r1, [sp, #63]	; 0x3f
+ 8002bc4:	485e      	ldr	r0, [pc, #376]	; (8002d40 <main+0xa50>)
+ 8002bc6:	f7fe ff63 	bl	8001a90 <myPrintf>
 	myPrintf("Driver ver: %u.%u.%u\n", M2M_RELEASE_VERSION_MAJOR_NO, M2M_RELEASE_VERSION_MINOR_NO, M2M_RELEASE_VERSION_PATCH_NO);
- 8002bc6:	2205      	movs	r2, #5
- 8002bc8:	2113      	movs	r1, #19
- 8002bca:	485d      	ldr	r0, [pc, #372]	; (8002d40 <main+0xa50>)
- 8002bcc:	2304      	movs	r3, #4
- 8002bce:	f7fe ff5f 	bl	8001a90 <myPrintf>
+ 8002bca:	2205      	movs	r2, #5
+ 8002bcc:	2113      	movs	r1, #19
+ 8002bce:	485d      	ldr	r0, [pc, #372]	; (8002d44 <main+0xa54>)
+ 8002bd0:	2304      	movs	r3, #4
+ 8002bd2:	f7fe ff5d 	bl	8001a90 <myPrintf>
 	myPrintf("Driver built at %s\t%s\n",__DATE__,__TIME__);
- 8002bd2:	4a5c      	ldr	r2, [pc, #368]	; (8002d44 <main+0xa54>)
- 8002bd4:	495c      	ldr	r1, [pc, #368]	; (8002d48 <main+0xa58>)
- 8002bd6:	485d      	ldr	r0, [pc, #372]	; (8002d4c <main+0xa5c>)
- 8002bd8:	f7fe ff5a 	bl	8001a90 <myPrintf>
+ 8002bd6:	4a5c      	ldr	r2, [pc, #368]	; (8002d48 <main+0xa58>)
+ 8002bd8:	495c      	ldr	r1, [pc, #368]	; (8002d4c <main+0xa5c>)
+ 8002bda:	485d      	ldr	r0, [pc, #372]	; (8002d50 <main+0xa60>)
+ 8002bdc:	f7fe ff58 	bl	8001a90 <myPrintf>
   ret = m2m_wifi_init(&param);
 
 
   if (M2M_SUCCESS != ret) {
- 8002bdc:	2d00      	cmp	r5, #0
- 8002bde:	f040 8103 	bne.w	8002de8 <main+0xaf8>
+ 8002be0:	2d00      	cmp	r5, #0
+ 8002be2:	f040 8103 	bne.w	8002dec <main+0xafc>
       myPrintf("main: m2m_wifi_init call error!(%d)\r\n", ret);
       while (1) {
       }
   }
   myPrintf("initializing wifi_request_scan\n");
- 8002be2:	485b      	ldr	r0, [pc, #364]	; (8002d50 <main+0xa60>)
+ 8002be6:	485b      	ldr	r0, [pc, #364]	; (8002d54 <main+0xa64>)
 	  palClearPad(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN);
- 8002be4:	4f5b      	ldr	r7, [pc, #364]	; (8002d54 <main+0xa64>)
- 8002be6:	f7fe ff53 	bl	8001a90 <myPrintf>
+ 8002be8:	4f5b      	ldr	r7, [pc, #364]	; (8002d58 <main+0xa68>)
+ 8002bea:	f7fe ff51 	bl	8001a90 <myPrintf>
   /* Request scan. */
   m2m_wifi_request_scan(M2M_WIFI_CH_ALL);
- 8002bea:	f7fe fe01 	bl	80017f0 <m2m_wifi_request_scan.constprop.0>
+ 8002bee:	f7fe fdff 	bl	80017f0 <m2m_wifi_request_scan.constprop.0>
 	while (gstrHifCxt.u8Interrupt) {
- 8002bee:	78e3      	ldrb	r3, [r4, #3]
- 8002bf0:	2b00      	cmp	r3, #0
- 8002bf2:	d0fc      	beq.n	8002bee <main+0x8fe>
+ 8002bf2:	78e3      	ldrb	r3, [r4, #3]
+ 8002bf4:	2b00      	cmp	r3, #0
+ 8002bf6:	d0fc      	beq.n	8002bf2 <main+0x902>
 		gstrHifCxt.u8Interrupt--;
- 8002bf4:	78e3      	ldrb	r3, [r4, #3]
- 8002bf6:	3b01      	subs	r3, #1
- 8002bf8:	b2db      	uxtb	r3, r3
- 8002bfa:	70e3      	strb	r3, [r4, #3]
- 8002bfc:	f44f 4800 	mov.w	r8, #32768	; 0x8000
- 8002c00:	a905      	add	r1, sp, #20
- 8002c02:	f241 0070 	movw	r0, #4208	; 0x1070
- 8002c06:	f7fe faf3 	bl	80011f0 <nm_spi_read_reg_with_ret>
+ 8002bf8:	78e3      	ldrb	r3, [r4, #3]
+ 8002bfa:	3b01      	subs	r3, #1
+ 8002bfc:	b2db      	uxtb	r3, r3
+ 8002bfe:	70e3      	strb	r3, [r4, #3]
+ 8002c00:	f44f 4800 	mov.w	r8, #32768	; 0x8000
+ 8002c04:	a905      	add	r1, sp, #20
+ 8002c06:	f241 0070 	movw	r0, #4208	; 0x1070
+ 8002c0a:	f7fe faf1 	bl	80011f0 <nm_spi_read_reg_with_ret>
 	if(M2M_SUCCESS == ret)
- 8002c0a:	2800      	cmp	r0, #0
- 8002c0c:	d1f8      	bne.n	8002c00 <main+0x910>
+ 8002c0e:	2800      	cmp	r0, #0
+ 8002c10:	d1f8      	bne.n	8002c04 <main+0x914>
 		if(reg & 0x1)	/* New interrupt has been received */
- 8002c0e:	9905      	ldr	r1, [sp, #20]
- 8002c10:	07cb      	lsls	r3, r1, #31
- 8002c12:	d5f5      	bpl.n	8002c00 <main+0x910>
+ 8002c12:	9905      	ldr	r1, [sp, #20]
+ 8002c14:	07cb      	lsls	r3, r1, #31
+ 8002c16:	d5f5      	bpl.n	8002c04 <main+0x914>
 			reg &= ~NBIT0;
- 8002c14:	f021 0101 	bic.w	r1, r1, #1
- 8002c18:	f8a7 801a 	strh.w	r8, [r7, #26]
+ 8002c18:	f021 0101 	bic.w	r1, r1, #1
+ 8002c1c:	f8a7 801a 	strh.w	r8, [r7, #26]
 	return nm_spi_write_reg(u32Addr,u32Val);
- 8002c1c:	f241 0070 	movw	r0, #4208	; 0x1070
- 8002c20:	9105      	str	r1, [sp, #20]
- 8002c22:	f7fe fc55 	bl	80014d0 <nm_spi_write_reg>
+ 8002c20:	f241 0070 	movw	r0, #4208	; 0x1070
+ 8002c24:	9105      	str	r1, [sp, #20]
+ 8002c26:	f7fe fc53 	bl	80014d0 <nm_spi_write_reg>
 			if(ret != M2M_SUCCESS)goto ERR1;
- 8002c26:	4603      	mov	r3, r0
- 8002c28:	2800      	cmp	r0, #0
- 8002c2a:	d1e9      	bne.n	8002c00 <main+0x910>
+ 8002c2a:	4603      	mov	r3, r0
+ 8002c2c:	2800      	cmp	r0, #0
+ 8002c2e:	d1e9      	bne.n	8002c04 <main+0x914>
 			size = (uint16)((reg >> 2) & 0xfff);
- 8002c2c:	9d05      	ldr	r5, [sp, #20]
+ 8002c30:	9d05      	ldr	r5, [sp, #20]
 			gstrHifCxt.u8HifRXDone = 1;
- 8002c2e:	2201      	movs	r2, #1
+ 8002c32:	2201      	movs	r2, #1
 			size = (uint16)((reg >> 2) & 0xfff);
- 8002c30:	f3c5 058b 	ubfx	r5, r5, #2, #12
+ 8002c34:	f3c5 058b 	ubfx	r5, r5, #2, #12
 			gstrHifCxt.u8HifRXDone = 1;
- 8002c34:	70a2      	strb	r2, [r4, #2]
+ 8002c38:	70a2      	strb	r2, [r4, #2]
 			if (size > 0) {
- 8002c36:	2d00      	cmp	r5, #0
- 8002c38:	d0e2      	beq.n	8002c00 <main+0x910>
+ 8002c3a:	2d00      	cmp	r5, #0
+ 8002c3c:	d0e2      	beq.n	8002c04 <main+0x914>
 	return nm_spi_read_reg_with_ret(u32Addr,pu32RetVal);
- 8002c3a:	a90e      	add	r1, sp, #56	; 0x38
- 8002c3c:	f241 0084 	movw	r0, #4228	; 0x1084
+ 8002c3e:	a90e      	add	r1, sp, #56	; 0x38
+ 8002c40:	f241 0084 	movw	r0, #4228	; 0x1084
 				uint32 address = 0;
- 8002c40:	930e      	str	r3, [sp, #56]	; 0x38
- 8002c42:	f7fe fad5 	bl	80011f0 <nm_spi_read_reg_with_ret>
+ 8002c44:	930e      	str	r3, [sp, #56]	; 0x38
+ 8002c46:	f7fe fad3 	bl	80011f0 <nm_spi_read_reg_with_ret>
 				if(M2M_SUCCESS != ret)
- 8002c46:	2800      	cmp	r0, #0
- 8002c48:	f040 8109 	bne.w	8002e5e <main+0xb6e>
+ 8002c4a:	2800      	cmp	r0, #0
+ 8002c4c:	f040 8109 	bne.w	8002e62 <main+0xb72>
 				gstrHifCxt.u32RxAddr = address;
- 8002c4c:	980e      	ldr	r0, [sp, #56]	; 0x38
- 8002c4e:	6060      	str	r0, [r4, #4]
+ 8002c50:	980e      	ldr	r0, [sp, #56]	; 0x38
+ 8002c52:	6060      	str	r0, [r4, #4]
 				ret = nm_read_block(address, (uint8*)&strHif, sizeof(tstrHifHdr));
- 8002c50:	2204      	movs	r2, #4
- 8002c52:	4631      	mov	r1, r6
+ 8002c54:	2204      	movs	r2, #4
+ 8002c56:	4631      	mov	r1, r6
 				gstrHifCxt.u32RxSize = size;
- 8002c54:	60a5      	str	r5, [r4, #8]
+ 8002c58:	60a5      	str	r5, [r4, #8]
 				ret = nm_read_block(address, (uint8*)&strHif, sizeof(tstrHifHdr));
- 8002c56:	f7fe fa5b 	bl	8001110 <nm_read_block>
+ 8002c5a:	f7fe fa59 	bl	8001110 <nm_read_block>
 				strHif.u16Length = NM_BSP_B_L_16(strHif.u16Length);
- 8002c5a:	f8bd 301a 	ldrh.w	r3, [sp, #26]
- 8002c5e:	b29b      	uxth	r3, r3
- 8002c60:	f8ad 301a 	strh.w	r3, [sp, #26]
+ 8002c5e:	f8bd 301a 	ldrh.w	r3, [sp, #26]
+ 8002c62:	b29b      	uxth	r3, r3
+ 8002c64:	f8ad 301a 	strh.w	r3, [sp, #26]
 				if(M2M_SUCCESS != ret)
- 8002c64:	2800      	cmp	r0, #0
- 8002c66:	f040 80fa 	bne.w	8002e5e <main+0xb6e>
+ 8002c68:	2800      	cmp	r0, #0
+ 8002c6a:	f040 80fa 	bne.w	8002e62 <main+0xb72>
 				if(strHif.u16Length != size)
- 8002c6a:	f8bd 301a 	ldrh.w	r3, [sp, #26]
- 8002c6e:	b29b      	uxth	r3, r3
- 8002c70:	429d      	cmp	r5, r3
- 8002c72:	d006      	beq.n	8002c82 <main+0x992>
+ 8002c6e:	f8bd 301a 	ldrh.w	r3, [sp, #26]
+ 8002c72:	b29b      	uxth	r3, r3
+ 8002c74:	429d      	cmp	r5, r3
+ 8002c76:	d006      	beq.n	8002c86 <main+0x996>
 					if((size - strHif.u16Length) > 4)
- 8002c74:	f8bd 301a 	ldrh.w	r3, [sp, #26]
- 8002c78:	b29b      	uxth	r3, r3
- 8002c7a:	1aed      	subs	r5, r5, r3
- 8002c7c:	2d04      	cmp	r5, #4
- 8002c7e:	f300 80ee 	bgt.w	8002e5e <main+0xb6e>
+ 8002c78:	f8bd 301a 	ldrh.w	r3, [sp, #26]
+ 8002c7c:	b29b      	uxth	r3, r3
+ 8002c7e:	1aed      	subs	r5, r5, r3
+ 8002c80:	2d04      	cmp	r5, #4
+ 8002c82:	f300 80ee 	bgt.w	8002e62 <main+0xb72>
 				if(M2M_REQ_GROUP_WIFI == strHif.u8Gid)
- 8002c82:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002c86:	2b01      	cmp	r3, #1
- 8002c88:	f000 80e0 	beq.w	8002e4c <main+0xb5c>
+ 8002c86:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002c8a:	2b01      	cmp	r3, #1
+ 8002c8c:	f000 80e0 	beq.w	8002e50 <main+0xb60>
 				else if(M2M_REQ_GROUP_IP == strHif.u8Gid)
- 8002c8c:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002c90:	2b02      	cmp	r3, #2
- 8002c92:	f000 80d2 	beq.w	8002e3a <main+0xb4a>
+ 8002c90:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002c94:	2b02      	cmp	r3, #2
+ 8002c96:	f000 80d2 	beq.w	8002e3e <main+0xb4e>
 				else if(M2M_REQ_GROUP_OTA == strHif.u8Gid)
- 8002c96:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002c9a:	2b04      	cmp	r3, #4
- 8002c9c:	f000 80c4 	beq.w	8002e28 <main+0xb38>
+ 8002c9a:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002c9e:	2b04      	cmp	r3, #4
+ 8002ca0:	f000 80c4 	beq.w	8002e2c <main+0xb3c>
 				else if(M2M_REQ_GROUP_CRYPTO == strHif.u8Gid)
- 8002ca0:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002ca4:	2b06      	cmp	r3, #6
- 8002ca6:	f000 80b6 	beq.w	8002e16 <main+0xb26>
+ 8002ca4:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002ca8:	2b06      	cmp	r3, #6
+ 8002caa:	f000 80b6 	beq.w	8002e1a <main+0xb2a>
 				else if(M2M_REQ_GROUP_SIGMA == strHif.u8Gid)
- 8002caa:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002cae:	2b07      	cmp	r3, #7
- 8002cb0:	f000 80d8 	beq.w	8002e64 <main+0xb74>
+ 8002cae:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002cb2:	2b07      	cmp	r3, #7
+ 8002cb4:	f000 80d8 	beq.w	8002e68 <main+0xb78>
 				else if(M2M_REQ_GROUP_SSL == strHif.u8Gid)
- 8002cb4:	f89d 3018 	ldrb.w	r3, [sp, #24]
- 8002cb8:	2b05      	cmp	r3, #5
- 8002cba:	d1a1      	bne.n	8002c00 <main+0x910>
+ 8002cb8:	f89d 3018 	ldrb.w	r3, [sp, #24]
+ 8002cbc:	2b05      	cmp	r3, #5
+ 8002cbe:	d1a1      	bne.n	8002c04 <main+0x914>
 				    if(gstrHifCxt.pfSslCb)
- 8002cbc:	6a63      	ldr	r3, [r4, #36]	; 0x24
- 8002cbe:	b14b      	cbz	r3, 8002cd4 <main+0x9e4>
+ 8002cc0:	6a63      	ldr	r3, [r4, #36]	; 0x24
+ 8002cc2:	b14b      	cbz	r3, 8002cd8 <main+0x9e8>
 					    temp = (uint16)strHif.u16Length;
- 8002cc0:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002cc4:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfSslCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002cc4:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002cc6:	6a63      	ldr	r3, [r4, #36]	; 0x24
- 8002cc8:	f89d 0019 	ldrb.w	r0, [sp, #25]
- 8002ccc:	3908      	subs	r1, #8
- 8002cce:	b289      	uxth	r1, r1
- 8002cd0:	3208      	adds	r2, #8
- 8002cd2:	4798      	blx	r3
+ 8002cc8:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002cca:	6a63      	ldr	r3, [r4, #36]	; 0x24
+ 8002ccc:	f89d 0019 	ldrb.w	r0, [sp, #25]
+ 8002cd0:	3908      	subs	r1, #8
+ 8002cd2:	b289      	uxth	r1, r1
+ 8002cd4:	3208      	adds	r2, #8
+ 8002cd6:	4798      	blx	r3
 				if(gstrHifCxt.u8HifRXDone)
- 8002cd4:	78a3      	ldrb	r3, [r4, #2]
- 8002cd6:	2b00      	cmp	r3, #0
- 8002cd8:	d089      	beq.n	8002bee <main+0x8fe>
+ 8002cd8:	78a3      	ldrb	r3, [r4, #2]
+ 8002cda:	2b00      	cmp	r3, #0
+ 8002cdc:	d089      	beq.n	8002bf2 <main+0x902>
 					ret = hif_set_rx_done();
- 8002cda:	f7fe fdb1 	bl	8001840 <hif_set_rx_done>
+ 8002cde:	f7fe fdaf 	bl	8001840 <hif_set_rx_done>
 					if(ret != M2M_SUCCESS) goto ERR1;
- 8002cde:	2800      	cmp	r0, #0
- 8002ce0:	d085      	beq.n	8002bee <main+0x8fe>
- 8002ce2:	e78d      	b.n	8002c00 <main+0x910>
+ 8002ce2:	2800      	cmp	r0, #0
+ 8002ce4:	d085      	beq.n	8002bf2 <main+0x902>
+ 8002ce6:	e78d      	b.n	8002c04 <main+0x914>
   tp->state = CH_STATE_READY;
- 8002ce4:	f881 7020 	strb.w	r7, [r1, #32]
+ 8002ce8:	f881 7020 	strb.w	r7, [r1, #32]
   cp = (thread_t *)&ch.rlist.queue;
- 8002ce8:	3a30      	subs	r2, #48	; 0x30
+ 8002cec:	3a30      	subs	r2, #48	; 0x30
     cp = cp->queue.next;
- 8002cea:	6812      	ldr	r2, [r2, #0]
+ 8002cee:	6812      	ldr	r2, [r2, #0]
   } while (cp->prio > tp->prio);
- 8002cec:	6890      	ldr	r0, [r2, #8]
- 8002cee:	2800      	cmp	r0, #0
- 8002cf0:	d1fb      	bne.n	8002cea <main+0x9fa>
+ 8002cf0:	6890      	ldr	r0, [r2, #8]
+ 8002cf2:	2800      	cmp	r0, #0
+ 8002cf4:	d1fb      	bne.n	8002cee <main+0x9fe>
   tp->queue.prev             = cp->queue.prev;
- 8002cf2:	6850      	ldr	r0, [r2, #4]
- 8002cf4:	e9c1 2000 	strd	r2, r0, [r1]
+ 8002cf6:	6850      	ldr	r0, [r2, #4]
+ 8002cf8:	e9c1 2000 	strd	r2, r0, [r1]
   tp->queue.prev->queue.next = tp;
- 8002cf8:	6001      	str	r1, [r0, #0]
+ 8002cfc:	6001      	str	r1, [r0, #0]
   cp->queue.prev             = tp;
- 8002cfa:	6051      	str	r1, [r2, #4]
+ 8002cfe:	6051      	str	r1, [r2, #4]
     ntp->state = CH_STATE_CURRENT;
- 8002cfc:	2201      	movs	r2, #1
+ 8002d00:	2201      	movs	r2, #1
     chSysSwitch(ntp, otp);
- 8002cfe:	4816      	ldr	r0, [pc, #88]	; (8002d58 <main+0xa68>)
+ 8002d02:	4816      	ldr	r0, [pc, #88]	; (8002d5c <main+0xa6c>)
     ntp->state = CH_STATE_CURRENT;
- 8002d00:	f883 20b0 	strb.w	r2, [r3, #176]	; 0xb0
+ 8002d04:	f883 20b0 	strb.w	r2, [r3, #176]	; 0xb0
     currp = ntp;
- 8002d04:	f8c4 c018 	str.w	ip, [r4, #24]
+ 8002d08:	f8c4 c018 	str.w	ip, [r4, #24]
     chSysSwitch(ntp, otp);
- 8002d08:	f7fd faea 	bl	80002e0 <_port_switch>
- 8002d0c:	e527      	b.n	800275e <main+0x46e>
+ 8002d0c:	f7fd fae8 	bl	80002e0 <_port_switch>
+ 8002d10:	e525      	b.n	800275e <main+0x46e>
     spip->txdmamode &= ~(STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 8002d0e:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
+ 8002d12:	6aeb      	ldr	r3, [r5, #44]	; 0x2c
     spip->rxdmamode &= ~(STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 8002d10:	f420 7084 	bic.w	r0, r0, #264	; 0x108
+ 8002d14:	f420 7084 	bic.w	r0, r0, #264	; 0x108
     spip->txdmamode &= ~(STM32_DMA_CR_CIRC | STM32_DMA_CR_HTIE);
- 8002d14:	f423 7384 	bic.w	r3, r3, #264	; 0x108
- 8002d18:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
- 8002d1c:	e5e2      	b.n	80028e4 <main+0x5f4>
- 8002d1e:	bf00      	nop
- 8002d20:	02532636 	.word	0x02532636
- 8002d24:	20000bf8 	.word	0x20000bf8
- 8002d28:	08000611 	.word	0x08000611
- 8002d2c:	080018d1 	.word	0x080018d1
- 8002d30:	000c0008 	.word	0x000c0008
- 8002d34:	08003c38 	.word	0x08003c38
- 8002d38:	08003c60 	.word	0x08003c60
- 8002d3c:	08003c7c 	.word	0x08003c7c
- 8002d40:	08003ca0 	.word	0x08003ca0
- 8002d44:	08003cb8 	.word	0x08003cb8
- 8002d48:	08003cc4 	.word	0x08003cc4
- 8002d4c:	08003cd0 	.word	0x08003cd0
- 8002d50:	08003d10 	.word	0x08003d10
- 8002d54:	40020400 	.word	0x40020400
- 8002d58:	20000b00 	.word	0x20000b00
+ 8002d18:	f423 7384 	bic.w	r3, r3, #264	; 0x108
+ 8002d1c:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
+ 8002d20:	e5e7      	b.n	80028f2 <main+0x602>
+ 8002d22:	bf00      	nop
+ 8002d24:	02532636 	.word	0x02532636
+ 8002d28:	20000bf8 	.word	0x20000bf8
+ 8002d2c:	08000611 	.word	0x08000611
+ 8002d30:	080018d1 	.word	0x080018d1
+ 8002d34:	000c0008 	.word	0x000c0008
+ 8002d38:	08003c0c 	.word	0x08003c0c
+ 8002d3c:	08003c34 	.word	0x08003c34
+ 8002d40:	08003c50 	.word	0x08003c50
+ 8002d44:	08003c74 	.word	0x08003c74
+ 8002d48:	08003c8c 	.word	0x08003c8c
+ 8002d4c:	08003c98 	.word	0x08003c98
+ 8002d50:	08003ca4 	.word	0x08003ca4
+ 8002d54:	08003ce4 	.word	0x08003ce4
+ 8002d58:	40020400 	.word	0x40020400
+ 8002d5c:	20000b00 	.word	0x20000b00
 const stm32_dma_stream_t *dmaStreamAllocI(uint32_t id,
- 8002d5c:	494f      	ldr	r1, [pc, #316]	; (8002e9c <main+0xbac>)
- 8002d5e:	2003      	movs	r0, #3
- 8002d60:	f7fd fbde 	bl	8000520 <dmaStreamAllocI.part.0.constprop.0>
- 8002d64:	494e      	ldr	r1, [pc, #312]	; (8002ea0 <main+0xbb0>)
+ 8002d60:	494f      	ldr	r1, [pc, #316]	; (8002ea0 <main+0xbb0>)
+ 8002d62:	2003      	movs	r0, #3
+ 8002d64:	f7fd fbdc 	bl	8000520 <dmaStreamAllocI.part.0.constprop.0>
+ 8002d68:	494e      	ldr	r1, [pc, #312]	; (8002ea4 <main+0xbb4>)
       spip->dmarx = dmaStreamAllocI(STM32_SPI_SPI2_RX_DMA_STREAM,
- 8002d66:	6228      	str	r0, [r5, #32]
- 8002d68:	2004      	movs	r0, #4
- 8002d6a:	f7fd fbd9 	bl	8000520 <dmaStreamAllocI.part.0.constprop.0>
+ 8002d6a:	6228      	str	r0, [r5, #32]
+ 8002d6c:	2004      	movs	r0, #4
+ 8002d6e:	f7fd fbd7 	bl	8000520 <dmaStreamAllocI.part.0.constprop.0>
       rccEnableSPI2(true);
- 8002d6e:	4b4d      	ldr	r3, [pc, #308]	; (8002ea4 <main+0xbb4>)
+ 8002d72:	4b4d      	ldr	r3, [pc, #308]	; (8002ea8 <main+0xbb8>)
     dmaStreamSetPeripheral(spip->dmarx, &spip->spi->DR);
- 8002d70:	6a29      	ldr	r1, [r5, #32]
+ 8002d74:	6a29      	ldr	r1, [r5, #32]
       rccEnableSPI2(true);
- 8002d72:	6c1a      	ldr	r2, [r3, #64]	; 0x40
+ 8002d76:	6c1a      	ldr	r2, [r3, #64]	; 0x40
     dmaStreamSetPeripheral(spip->dmarx, &spip->spi->DR);
- 8002d74:	f8d1 c000 	ldr.w	ip, [r1]
+ 8002d78:	f8d1 c000 	ldr.w	ip, [r1]
     dmaStreamSetPeripheral(spip->dmatx, &spip->spi->DR);
- 8002d78:	6806      	ldr	r6, [r0, #0]
+ 8002d7c:	6806      	ldr	r6, [r0, #0]
       rccEnableSPI2(true);
- 8002d7a:	f442 4280 	orr.w	r2, r2, #16384	; 0x4000
- 8002d7e:	641a      	str	r2, [r3, #64]	; 0x40
- 8002d80:	6e1c      	ldr	r4, [r3, #96]	; 0x60
+ 8002d7e:	ea42 020a 	orr.w	r2, r2, sl
+ 8002d82:	641a      	str	r2, [r3, #64]	; 0x40
+ 8002d84:	6e1c      	ldr	r4, [r3, #96]	; 0x60
   if ((spip->config->cr1 & SPI_CR1_DFF) == 0) {
- 8002d82:	686a      	ldr	r2, [r5, #4]
+ 8002d86:	686a      	ldr	r2, [r5, #4]
       spip->dmatx = dmaStreamAllocI(STM32_SPI_SPI2_TX_DMA_STREAM,
- 8002d84:	6268      	str	r0, [r5, #36]	; 0x24
+ 8002d88:	6268      	str	r0, [r5, #36]	; 0x24
     dmaStreamSetPeripheral(spip->dmarx, &spip->spi->DR);
- 8002d86:	69e8      	ldr	r0, [r5, #28]
+ 8002d8a:	69e8      	ldr	r0, [r5, #28]
   if ((spip->config->cr1 & SPI_CR1_DFF) == 0) {
- 8002d88:	8a11      	ldrh	r1, [r2, #16]
+ 8002d8c:	8a11      	ldrh	r1, [r2, #16]
       rccEnableSPI2(true);
- 8002d8a:	f444 4480 	orr.w	r4, r4, #16384	; 0x4000
- 8002d8e:	661c      	str	r4, [r3, #96]	; 0x60
+ 8002d8e:	ea44 040a 	orr.w	r4, r4, sl
+ 8002d92:	661c      	str	r4, [r3, #96]	; 0x60
     dmaStreamSetPeripheral(spip->dmarx, &spip->spi->DR);
- 8002d90:	300c      	adds	r0, #12
+ 8002d94:	300c      	adds	r0, #12
       rccEnableSPI2(true);
- 8002d92:	6e1b      	ldr	r3, [r3, #96]	; 0x60
+ 8002d96:	6e1b      	ldr	r3, [r3, #96]	; 0x60
     dmaStreamSetPeripheral(spip->dmarx, &spip->spi->DR);
- 8002d94:	f8cc 0008 	str.w	r0, [ip, #8]
+ 8002d98:	f8cc 0008 	str.w	r0, [ip, #8]
     dmaStreamSetPeripheral(spip->dmatx, &spip->spi->DR);
- 8002d98:	60b0      	str	r0, [r6, #8]
+ 8002d9c:	60b0      	str	r0, [r6, #8]
   if ((spip->config->cr1 & SPI_CR1_DFF) == 0) {
- 8002d9a:	0508      	lsls	r0, r1, #20
- 8002d9c:	f57f ad8e 	bpl.w	80028bc <main+0x5cc>
+ 8002d9e:	0508      	lsls	r0, r1, #20
+ 8002da0:	f57f ad93 	bpl.w	80028ca <main+0x5da>
     spip->txdmamode = (spip->txdmamode & ~STM32_DMA_CR_SIZE_MASK) |
- 8002da0:	e9d5 030a 	ldrd	r0, r3, [r5, #40]	; 0x28
+ 8002da4:	e9d5 030a 	ldrd	r0, r3, [r5, #40]	; 0x28
     spip->rxdmamode = (spip->rxdmamode & ~STM32_DMA_CR_SIZE_MASK) |
- 8002da4:	f420 40f0 	bic.w	r0, r0, #30720	; 0x7800
+ 8002da8:	f420 40f0 	bic.w	r0, r0, #30720	; 0x7800
     spip->txdmamode = (spip->txdmamode & ~STM32_DMA_CR_SIZE_MASK) |
- 8002da8:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
+ 8002dac:	f423 43f0 	bic.w	r3, r3, #30720	; 0x7800
                       STM32_DMA_CR_PSIZE_HWORD | STM32_DMA_CR_MSIZE_HWORD;
- 8002dac:	f440 5020 	orr.w	r0, r0, #10240	; 0x2800
+ 8002db0:	f440 5020 	orr.w	r0, r0, #10240	; 0x2800
                       STM32_DMA_CR_PSIZE_HWORD | STM32_DMA_CR_MSIZE_HWORD;
- 8002db0:	f443 5320 	orr.w	r3, r3, #10240	; 0x2800
+ 8002db4:	f443 5320 	orr.w	r3, r3, #10240	; 0x2800
     spip->txdmamode = (spip->txdmamode & ~STM32_DMA_CR_SIZE_MASK) |
- 8002db4:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
- 8002db8:	e588      	b.n	80028cc <main+0x5dc>
+ 8002db8:	e9c5 030a 	strd	r0, r3, [r5, #40]	; 0x28
+ 8002dbc:	e58d      	b.n	80028da <main+0x5ea>
 		reg &= ~0x70;
- 8002dba:	9b0e      	ldr	r3, [sp, #56]	; 0x38
- 8002dbc:	f023 037c 	bic.w	r3, r3, #124	; 0x7c
+ 8002dbe:	9b0e      	ldr	r3, [sp, #56]	; 0x38
+ 8002dc0:	f023 037c 	bic.w	r3, r3, #124	; 0x7c
 		reg |= (0x5 << 4);
- 8002dc0:	f043 0150 	orr.w	r1, r3, #80	; 0x50
+ 8002dc4:	f043 0150 	orr.w	r1, r3, #80	; 0x50
 		if (!spi_write_reg(NMI_SPI_PROTOCOL_CONFIG, reg)) {
- 8002dc4:	f64e 0024 	movw	r0, #59428	; 0xe824
+ 8002dc8:	f64e 0024 	movw	r0, #59428	; 0xe824
 		reg |= (0x5 << 4);
- 8002dc8:	910e      	str	r1, [sp, #56]	; 0x38
+ 8002dcc:	910e      	str	r1, [sp, #56]	; 0x38
 		if (!spi_write_reg(NMI_SPI_PROTOCOL_CONFIG, reg)) {
- 8002dca:	f7fe fb41 	bl	8001450 <spi_write_reg>
- 8002dce:	b1d0      	cbz	r0, 8002e06 <main+0xb16>
+ 8002dce:	f7fe fb3f 	bl	8001450 <spi_write_reg>
+ 8002dd2:	b1d0      	cbz	r0, 8002e0a <main+0xb1a>
 		gu8Crc_off = 1;
- 8002dd0:	2301      	movs	r3, #1
- 8002dd2:	7023      	strb	r3, [r4, #0]
- 8002dd4:	e5b0      	b.n	8002938 <main+0x648>
+ 8002dd4:	2301      	movs	r3, #1
+ 8002dd6:	7023      	strb	r3, [r4, #0]
+ 8002dd8:	e5b5      	b.n	8002946 <main+0x656>
     fck = STM32_PCLK2 / config->speed;
- 8002dd6:	f44f 7259 	mov.w	r2, #868	; 0x364
- 8002dda:	e4e8      	b.n	80027ae <main+0x4be>
+ 8002dda:	f44f 7259 	mov.w	r2, #868	; 0x364
+ 8002dde:	e4e6      	b.n	80027ae <main+0x4be>
 		chip_apply_conf(u32GpReg1);
- 8002ddc:	2000      	movs	r0, #0
- 8002dde:	f7fe fb8f 	bl	8001500 <chip_apply_conf>
- 8002de2:	e5ef      	b.n	80029c4 <main+0x6d4>
- 8002de4:	f06f 0504 	mvn.w	r5, #4
+ 8002de0:	2000      	movs	r0, #0
+ 8002de2:	f7fe fb8d 	bl	8001500 <chip_apply_conf>
+ 8002de6:	e5f4      	b.n	80029d2 <main+0x6e2>
+ 8002de8:	f06f 0504 	mvn.w	r5, #4
       myPrintf("main: m2m_wifi_init call error!(%d)\r\n", ret);
- 8002de8:	482f      	ldr	r0, [pc, #188]	; (8002ea8 <main+0xbb8>)
- 8002dea:	4629      	mov	r1, r5
- 8002dec:	f7fe fe50 	bl	8001a90 <myPrintf>
+ 8002dec:	482f      	ldr	r0, [pc, #188]	; (8002eac <main+0xbbc>)
+ 8002dee:	4629      	mov	r1, r5
+ 8002df0:	f7fe fe4e 	bl	8001a90 <myPrintf>
       while (1) {
- 8002df0:	e7fe      	b.n	8002df0 <main+0xb00>
+ 8002df4:	e7fe      	b.n	8002df4 <main+0xb04>
 		gu8Crc_off = 1;
- 8002df2:	2301      	movs	r3, #1
+ 8002df6:	2301      	movs	r3, #1
 		if (!spi_read_reg(NMI_SPI_PROTOCOL_CONFIG, &reg)){
- 8002df4:	a90e      	add	r1, sp, #56	; 0x38
- 8002df6:	f64e 0024 	movw	r0, #59428	; 0xe824
+ 8002df8:	a90e      	add	r1, sp, #56	; 0x38
+ 8002dfa:	f64e 0024 	movw	r0, #59428	; 0xe824
 		gu8Crc_off = 1;
- 8002dfa:	7023      	strb	r3, [r4, #0]
+ 8002dfe:	7023      	strb	r3, [r4, #0]
 		if (!spi_read_reg(NMI_SPI_PROTOCOL_CONFIG, &reg)){
- 8002dfc:	f7fe f9b0 	bl	8001160 <spi_read_reg>
- 8002e00:	2800      	cmp	r0, #0
- 8002e02:	f47f ad95 	bne.w	8002930 <main+0x640>
- 8002e06:	ae06      	add	r6, sp, #24
- 8002e08:	e59f      	b.n	800294a <main+0x65a>
+ 8002e00:	f7fe f9ae 	bl	8001160 <spi_read_reg>
+ 8002e04:	2800      	cmp	r0, #0
+ 8002e06:	f47f ad9a 	bne.w	800293e <main+0x64e>
+ 8002e0a:	ae06      	add	r6, sp, #24
+ 8002e0c:	e5a4      	b.n	8002958 <main+0x668>
 	{
 		nm_write_reg(NMI_STATE_REG, 0);
- 8002e0a:	2100      	movs	r1, #0
- 8002e0c:	f241 008c 	movw	r0, #4236	; 0x108c
- 8002e10:	f7fe fb6e 	bl	80014f0 <nm_write_reg>
+ 8002e0e:	2100      	movs	r1, #0
+ 8002e10:	f241 008c 	movw	r0, #4236	; 0x108c
+ 8002e14:	f7fe fb6c 	bl	80014f0 <nm_write_reg>
 	if (M2M_SUCCESS != ret) {
 		goto ERR2;
 	}
 
 	ret = wait_for_firmware_start(u8Mode);
 	if (M2M_SUCCESS != ret) {
- 8002e14:	e622      	b.n	8002a5c <main+0x76c>
+ 8002e18:	e622      	b.n	8002a60 <main+0x770>
 					if(gstrHifCxt.pfCryptoCb)
- 8002e16:	6a23      	ldr	r3, [r4, #32]
- 8002e18:	2b00      	cmp	r3, #0
- 8002e1a:	f43f af5b 	beq.w	8002cd4 <main+0x9e4>
+ 8002e1a:	6a23      	ldr	r3, [r4, #32]
+ 8002e1c:	2b00      	cmp	r3, #0
+ 8002e1e:	f43f af5b 	beq.w	8002cd8 <main+0x9e8>
                         temp = (uint16)strHif.u16Length;
- 8002e1e:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002e22:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfCryptoCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002e22:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002e24:	6a23      	ldr	r3, [r4, #32]
- 8002e26:	e74f      	b.n	8002cc8 <main+0x9d8>
+ 8002e26:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002e28:	6a23      	ldr	r3, [r4, #32]
+ 8002e2a:	e74f      	b.n	8002ccc <main+0x9dc>
 					if(gstrHifCxt.pfOtaCb)
- 8002e28:	6963      	ldr	r3, [r4, #20]
- 8002e2a:	2b00      	cmp	r3, #0
- 8002e2c:	f43f af52 	beq.w	8002cd4 <main+0x9e4>
+ 8002e2c:	6963      	ldr	r3, [r4, #20]
+ 8002e2e:	2b00      	cmp	r3, #0
+ 8002e30:	f43f af52 	beq.w	8002cd8 <main+0x9e8>
                             temp = (uint16)strHif.u16Length;
- 8002e30:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002e34:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfOtaCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002e34:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002e36:	6963      	ldr	r3, [r4, #20]
- 8002e38:	e746      	b.n	8002cc8 <main+0x9d8>
+ 8002e38:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002e3a:	6963      	ldr	r3, [r4, #20]
+ 8002e3c:	e746      	b.n	8002ccc <main+0x9dc>
 					if(gstrHifCxt.pfIpCb)
- 8002e3a:	6923      	ldr	r3, [r4, #16]
- 8002e3c:	2b00      	cmp	r3, #0
- 8002e3e:	f43f af49 	beq.w	8002cd4 <main+0x9e4>
+ 8002e3e:	6923      	ldr	r3, [r4, #16]
+ 8002e40:	2b00      	cmp	r3, #0
+ 8002e42:	f43f af49 	beq.w	8002cd8 <main+0x9e8>
                         temp = (uint16)strHif.u16Length;
- 8002e42:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002e46:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfIpCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002e46:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002e48:	6923      	ldr	r3, [r4, #16]
- 8002e4a:	e73d      	b.n	8002cc8 <main+0x9d8>
+ 8002e4a:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002e4c:	6923      	ldr	r3, [r4, #16]
+ 8002e4e:	e73d      	b.n	8002ccc <main+0x9dc>
 					if(gstrHifCxt.pfWifiCb)
- 8002e4c:	68e3      	ldr	r3, [r4, #12]
- 8002e4e:	2b00      	cmp	r3, #0
- 8002e50:	f43f af40 	beq.w	8002cd4 <main+0x9e4>
+ 8002e50:	68e3      	ldr	r3, [r4, #12]
+ 8002e52:	2b00      	cmp	r3, #0
+ 8002e54:	f43f af40 	beq.w	8002cd8 <main+0x9e8>
                         temp = (uint16)strHif.u16Length;
- 8002e54:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002e58:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfWifiCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002e58:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002e5a:	68e3      	ldr	r3, [r4, #12]
- 8002e5c:	e734      	b.n	8002cc8 <main+0x9d8>
+ 8002e5c:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002e5e:	68e3      	ldr	r3, [r4, #12]
+ 8002e60:	e734      	b.n	8002ccc <main+0x9dc>
 	if (1 == u8Enable)
- 8002e5e:	f7fd fc07 	bl	8000670 <nm_bsp_interrupt_ctrl.part.0>
+ 8002e62:	f7fd fc05 	bl	8000670 <nm_bsp_interrupt_ctrl.part.0>
 			if(ret == M2M_SUCCESS) {
- 8002e62:	e6cd      	b.n	8002c00 <main+0x910>
+ 8002e66:	e6cd      	b.n	8002c04 <main+0x914>
 					if(gstrHifCxt.pfSigmaCb)
- 8002e64:	69a3      	ldr	r3, [r4, #24]
- 8002e66:	2b00      	cmp	r3, #0
- 8002e68:	f43f af34 	beq.w	8002cd4 <main+0x9e4>
+ 8002e68:	69a3      	ldr	r3, [r4, #24]
+ 8002e6a:	2b00      	cmp	r3, #0
+ 8002e6c:	f43f af34 	beq.w	8002cd8 <main+0x9e8>
                         temp = (uint16)strHif.u16Length;
- 8002e6c:	f8bd 101a 	ldrh.w	r1, [sp, #26]
+ 8002e70:	f8bd 101a 	ldrh.w	r1, [sp, #26]
 						gstrHifCxt.pfSigmaCb(strHif.u8Opcode, temp - M2M_HIF_HDR_OFFSET, address + M2M_HIF_HDR_OFFSET);
- 8002e70:	9a0e      	ldr	r2, [sp, #56]	; 0x38
- 8002e72:	69a3      	ldr	r3, [r4, #24]
- 8002e74:	e728      	b.n	8002cc8 <main+0x9d8>
+ 8002e74:	9a0e      	ldr	r2, [sp, #56]	; 0x38
+ 8002e76:	69a3      	ldr	r3, [r4, #24]
+ 8002e78:	e728      	b.n	8002ccc <main+0x9dc>
 								ret = M2M_ERR_FW_VER_MISMATCH;
- 8002e76:	f06f 050c 	mvn.w	r5, #12
- 8002e7a:	e68e      	b.n	8002b9a <main+0x8aa>
- 8002e7c:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
- 8002e80:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
- 8002e84:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
+ 8002e7a:	f06f 050c 	mvn.w	r5, #12
+ 8002e7e:	e68e      	b.n	8002b9e <main+0x8ae>
+ 8002e80:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
+ 8002e84:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
+ 8002e88:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
 				ret = M2M_ERR_FAIL;
- 8002e88:	f06f 050b 	mvn.w	r5, #11
- 8002e8c:	e685      	b.n	8002b9a <main+0x8aa>
- 8002e8e:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
- 8002e92:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
- 8002e96:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
- 8002e9a:	e67e      	b.n	8002b9a <main+0x8aa>
- 8002e9c:	080008c1 	.word	0x080008c1
- 8002ea0:	080008a1 	.word	0x080008a1
- 8002ea4:	40023800 	.word	0x40023800
- 8002ea8:	08003ce8 	.word	0x08003ce8
- 8002eac:	00000000 	.word	0x00000000
+ 8002e8c:	f06f 050b 	mvn.w	r5, #11
+ 8002e90:	e685      	b.n	8002b9e <main+0x8ae>
+ 8002e92:	f89d 103c 	ldrb.w	r1, [sp, #60]	; 0x3c
+ 8002e96:	f89d 303e 	ldrb.w	r3, [sp, #62]	; 0x3e
+ 8002e9a:	f89d 203d 	ldrb.w	r2, [sp, #61]	; 0x3d
+ 8002e9e:	e67e      	b.n	8002b9e <main+0x8ae>
+ 8002ea0:	080008c1 	.word	0x080008c1
+ 8002ea4:	080008a1 	.word	0x080008a1
+ 8002ea8:	40023800 	.word	0x40023800
+ 8002eac:	08003cbc 	.word	0x08003cbc
 
 08002eb0 <SVC_Handler>:
   __ASM volatile ("MRS %0, psp"  : "=r" (result) );
@@ -8996,11 +8997,11 @@ void __init_ram_areas(void) {
  8003a2e:	bcf0      	pop	{r4, r5, r6, r7}
  8003a30:	4770      	bx	lr
  8003a32:	bf00      	nop
- 8003a34:	08003f08 	.word	0x08003f08
+ 8003a34:	08003edc 	.word	0x08003edc
  8003a38:	20000d50 	.word	0x20000d50
  8003a3c:	20000d50 	.word	0x20000d50
  8003a40:	20000d50 	.word	0x20000d50
- 8003a44:	08003fc4 	.word	0x08003fc4
+ 8003a44:	08003f98 	.word	0x08003f98
 	...
 
 08003a50 <__default_exit>:

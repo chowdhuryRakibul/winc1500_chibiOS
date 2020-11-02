@@ -181,7 +181,9 @@ NMI_API void Socket_ReadSocketData(SOCKET sock, tstrSocketRecvMsg *pstrRecv,uint
 					if(hif_receive(0, NULL, 0, 1) == M2M_SUCCESS)
 						M2M_DBG("hif_receive Success\n");
 					else
+					{
 						M2M_DBG("hif_receive Fail\n");
+					}
 					break;
 				}
 			}
@@ -356,7 +358,9 @@ static void m2m_ip_cb(uint8 u8OpCode, uint16 u16BufferSize,uint32 u32Address)
 					if(hif_receive(0, NULL, 0, 1) == M2M_SUCCESS)
 						M2M_DBG("hif_receive Success\n");
 					else
+					{
 						M2M_DBG("hif_receive Fail\n");
+					}
 				}
 			}
 		}

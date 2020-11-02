@@ -50,7 +50,7 @@
 #include "winc1500/driver/include/m2m_types.h"
 #include "winc1500/spi_flash/include/spi_flash.h"
 #include "winc1500/config/conf_winc.h"
-#include "hal.h"
+
 #ifdef CONF_WINC_USE_SPI
 #include "winc1500/driver/source/nmspi.h"
 #endif
