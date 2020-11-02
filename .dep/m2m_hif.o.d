@@ -1,9 +1,7 @@
 build/obj/m2m_hif.o: winc1500/driver/source/m2m_hif.c \
  winc1500/common/include/nm_common.h winc1500/bsp/include/nm_bsp.h \
  winc1500/common/include/nm_debug.h \
- winc1500/bsp/include/nm_bsp_internal.h winc1500/driver/source/nmbus.h \
- winc1500/bus_wrapper/include/nm_bus_wrapper.h \
- winc1500/bsp/include/nm_bsp_stm32f429.h winc1500/config/conf_winc.h \
+ winc1500/bsp/include/nm_bsp_internal.h winc1500/config/conf_winc.h \
  ../../chibios203/os/hal/include/hal.h \
  ../../chibios203/os/hal/osal/rt-nil/osal.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\lib\gcc\arm-none-eabi\9.2.1\include\stddef.h \
@@ -117,6 +115,9 @@ build/obj/m2m_hif.o: winc1500/driver/source/m2m_hif.c \
  ../../chibios203/os/hal/ports/STM32/LLD/TIMv1/hal_st_lld.h \
  ../../chibios203/os/hal/include/hal_mmc_spi.h \
  ../../chibios203/os/hal/include/hal_serial_usb.h \
+ winc1500/driver/source/nmbus.h \
+ winc1500/bus_wrapper/include/nm_bus_wrapper.h \
+ winc1500/bsp/include/nm_bsp_stm32f429.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\math.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\sys\reent.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\_ansi.h \
@@ -138,12 +139,6 @@ winc1500/bsp/include/nm_bsp.h:
 winc1500/common/include/nm_debug.h:
 
 winc1500/bsp/include/nm_bsp_internal.h:
-
-winc1500/driver/source/nmbus.h:
-
-winc1500/bus_wrapper/include/nm_bus_wrapper.h:
-
-winc1500/bsp/include/nm_bsp_stm32f429.h:
 
 winc1500/config/conf_winc.h:
 
@@ -378,6 +373,12 @@ cfg/mcuconf.h:
 ../../chibios203/os/hal/include/hal_mmc_spi.h:
 
 ../../chibios203/os/hal/include/hal_serial_usb.h:
+
+winc1500/driver/source/nmbus.h:
+
+winc1500/bus_wrapper/include/nm_bus_wrapper.h:
+
+winc1500/bsp/include/nm_bsp_stm32f429.h:
 
 c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\math.h:
 

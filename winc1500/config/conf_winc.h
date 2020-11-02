@@ -104,7 +104,7 @@ extern "C" {
    --------- Debug Options ---------
    ---------------------------------
 */
-
+#define CONF_WINC_DEBUG                 (0)
 #define CONF_WINC_PRINTF				myPrintf
 
 #ifdef __cplusplus

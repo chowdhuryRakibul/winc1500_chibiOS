@@ -43,6 +43,8 @@
 #include "winc1500/driver/include/m2m_wifi.h"
 #include "winc1500/driver/source/m2m_hif.h"
 #include "winc1500/driver/source/nmasic.h"
+#include "hal.h"
+#include "ch.h"
 
 static volatile uint8 gu8ChNum;
 static volatile uint8 gu8scanInProgress = 0;
@@ -471,7 +473,7 @@ sint8 m2m_wifi_init(tstrWifiInitParam * param)
 	ret = nm_drv_init(&u8WifiMode);
 	if(ret != M2M_SUCCESS) 	goto _EXIT0;
 	/* Initialize host interface module */
-	ret = hif_init(NULL);
+	ret = hif_init();
 	if(ret != M2M_SUCCESS) 	goto _EXIT1;
 
 	hif_register_cb(M2M_REQ_GROUP_WIFI,m2m_wifi_cb);

@@ -39,9 +39,8 @@ build/obj/nm_bus_wrapper_stm32f429.o: \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\sys\_intsup.h \
  winc1500/bsp/include/nm_bsp.h winc1500/common/include/nm_common.h \
  winc1500/common/include/nm_debug.h \
- winc1500/bsp/include/nm_bsp_internal.h \
- winc1500/bus_wrapper/include/nm_bus_wrapper.h \
- winc1500/config/conf_winc.h ../../chibios203/os/hal/include/hal.h \
+ winc1500/bsp/include/nm_bsp_internal.h winc1500/config/conf_winc.h \
+ ../../chibios203/os/hal/include/hal.h \
  ../../chibios203/os/hal/osal/rt-nil/osal.h \
  ../../chibios203/os/rt/include/ch.h cfg/chconf.h \
  ../../chibios203/os/rt/include/chchecks.h \
@@ -143,7 +142,8 @@ build/obj/nm_bus_wrapper_stm32f429.o: \
  ../../chibios203/os/hal/include/hal_st.h \
  ../../chibios203/os/hal/ports/STM32/LLD/TIMv1/hal_st_lld.h \
  ../../chibios203/os/hal/include/hal_mmc_spi.h \
- ../../chibios203/os/hal/include/hal_serial_usb.h
+ ../../chibios203/os/hal/include/hal_serial_usb.h \
+ winc1500/bus_wrapper/include/nm_bus_wrapper.h
 
 c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\lib\gcc\arm-none-eabi\9.2.1\include\stdbool.h:
 
@@ -226,8 +226,6 @@ winc1500/common/include/nm_common.h:
 winc1500/common/include/nm_debug.h:
 
 winc1500/bsp/include/nm_bsp_internal.h:
-
-winc1500/bus_wrapper/include/nm_bus_wrapper.h:
 
 winc1500/config/conf_winc.h:
 
@@ -442,3 +440,5 @@ cfg/mcuconf.h:
 ../../chibios203/os/hal/include/hal_mmc_spi.h:
 
 ../../chibios203/os/hal/include/hal_serial_usb.h:
+
+winc1500/bus_wrapper/include/nm_bus_wrapper.h:

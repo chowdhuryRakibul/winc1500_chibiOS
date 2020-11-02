@@ -255,7 +255,7 @@ ERR1:
 *   @return		The function shall return ZERO for successful operation and a negative value otherwise.
 */
 
-sint8 hif_init(void * arg)
+sint8 hif_init(void)
 {
 	m2m_memset((uint8*)&gstrHifCxt,0,sizeof(tstrHifContext));
 	nm_bsp_register_isr(isr);

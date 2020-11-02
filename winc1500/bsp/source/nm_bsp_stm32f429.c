@@ -2,9 +2,12 @@
  *
  * \file
  *
- * \brief This module contains SAMD21 BSP APIs implementation.
+ * \brief This module contains STM32 BSP APIs implementation using ChibiOS
  *
  * Copyright (c) 2015 Atmel Corporation. All rights reserved.
+ *
+ * Modified for STM32 using ChibiOS by: Rakibul Islam Chowdhury
+ *                              <rakibul.chowdhury@diasgeo.com>
  *
  * \asf_license_start
  *
@@ -42,8 +45,9 @@
 #include "winc1500/bsp/include/nm_bsp.h"
 #include "winc1500/common/include/nm_common.h"
 #include "winc1500/config/conf_winc.h"
-#include "hal.h"
 #include "winc1500/driver/source/m2m_hif.h"
+
+#include "hal.h"
 
 /*
  *	@fn		init_chip_pins
@@ -51,40 +55,21 @@
  */
 static void init_chip_pins(void)
 {
-	/*Configure GPIO pin Output Level */
+  /*Reset necessary Pins */
   palSetPadMode(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,PAL_MODE_RESET);
-//	HAL_GPIO_WritePin(SPI_WIFI_CS_PORT, SPI_WIFI_CS_PIN, GPIO_PIN_RESET);
-
-	/*Configure GPIO pin Output Level */
   palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_RESET);
   palSetPadMode(CONF_WINC_WAKE_PORT,CONF_WINC_WAKE_PIN,PAL_MODE_RESET);
   palSetPadMode(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,PAL_MODE_RESET);
 
-//	HAL_GPIO_WritePin(CONF_WINC_ENABLE_PORT, CONF_WINC_ENABLE_PIN|CONF_WINC_WAKE_PIN |CONF_WINC_RESET_PIN, GPIO_PIN_RESET);
-
-	/*Configure GPIO pin : SPI_CS_Pin */
-//	GPIO_InitStruct.Pin = SPI_WIFI_CS_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//	GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-//	HAL_GPIO_Init(SPI_WIFI_CS_PORT, &GPIO_InitStruct);
+  /*Configure GPIO pin : SPI_CS_Pin */
   palSetPadMode(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,PAL_MODE_OUTPUT_PUSHPULL);
 
-	/*Configure GPIO pins : winc_EN_Pin winc_WAKE_Pin winc_RST_Pin */
-//	GPIO_InitStruct.Pin = CONF_WINC_ENABLE_PIN|CONF_WINC_WAKE_PIN |CONF_WINC_RESET_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-//	GPIO_InitStruct.Pull = GPIO_PULLUP;
-//	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-//	HAL_GPIO_Init(CONF_WINC_ENABLE_PORT, &GPIO_InitStruct);
+  /*Configure GPIO pins : winc_EN_Pin winc_WAKE_Pin winc_RST_Pin */
   palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_OUTPUT_PUSHPULL);
   palSetPadMode(CONF_WINC_WAKE_PORT,CONF_WINC_WAKE_PIN,PAL_MODE_OUTPUT_PUSHPULL);
   palSetPadMode(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,PAL_MODE_OUTPUT_PUSHPULL);
 
-	/*Configure GPIO pin : winc_IRQ_Pin */
-//	GPIO_InitStruct.Pin = CONF_WINC_IRQ_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
-//	GPIO_InitStruct.Pull = GPIO_PULLUP;
-//	HAL_GPIO_Init(CONF_WINC_IRQ_PORT, &GPIO_InitStruct);
+/*Configure GPIO pin : winc_IRQ_Pin */
   palSetPadMode(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_MODE_INPUT_PULLUP);
 }
 
@@ -111,7 +96,11 @@ sint8 nm_bsp_init(void)
  */
 sint8 nm_bsp_deinit(void)
 {
-	return M2M_SUCCESS;
+  palSetPadMode(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,PAL_MODE_RESET);
+  palSetPadMode(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,PAL_MODE_RESET);
+  palSetPadMode(CONF_WINC_WAKE_PORT,CONF_WINC_WAKE_PIN,PAL_MODE_RESET);
+  palSetPadMode(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,PAL_MODE_RESET);
+  return M2M_SUCCESS;
 }
 
 /**
@@ -121,16 +110,9 @@ sint8 nm_bsp_deinit(void)
  */
 void nm_bsp_reset(void)
 {
-//	HAL_GPIO_WritePin(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,GPIO_PIN_RESET);
-//	HAL_GPIO_WritePin(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,GPIO_PIN_RESET);
-//	nm_bsp_sleep(10);
-//	HAL_GPIO_WritePin(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN,GPIO_PIN_SET);
-//	nm_bsp_sleep(10);
-//	HAL_GPIO_WritePin(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN,GPIO_PIN_SET);
   palClearPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
   palClearPad(CONF_WINC_RESET_PORT,CONF_WINC_RESET_PIN);
-  nm_bsp_sleep(100);
-
+  nm_bsp_sleep(10);
 
   palSetPad(CONF_WINC_ENABLE_PORT,CONF_WINC_ENABLE_PIN);
   nm_bsp_sleep(10);
@@ -146,7 +128,6 @@ void nm_bsp_reset(void)
  */
 void nm_bsp_sleep(uint32 u32TimeMsec)
 {
-//	HAL_Delay(u32TimeMsec);
   chThdSleepMilliseconds(u32TimeMsec);
 }
 
@@ -158,25 +139,9 @@ void nm_bsp_sleep(uint32 u32TimeMsec)
  */
 void nm_bsp_register_isr(tpfNmBspIsr pfIsr)
 {
-//	GPIO_InitTypeDef GPIO_InitStruct;
-
-	/* EXTI2 init ISR function - called from nm_bsp_register_isr() */
-
-//	 __GPIOB_CLK_ENABLE();
-
-	/*Configure GPIO pin : PA2 */
-//	GPIO_InitStruct.Pin   = CONF_WINC_SPI_INT_PIN;
-//	GPIO_InitStruct.Mode  = GPIO_MODE_IT_FALLING;
-//	GPIO_InitStruct.Pull  = GPIO_NOPULL;
-//	HAL_GPIO_Init(CONF_WINC_SPI_INT_PORT, &GPIO_InitStruct);
-
-	/* EXTI 2 (PA2) interrupt init*/
-//	HAL_NVIC_SetPriority(CONF_WINC_EXTI_IRQN, 0x00, 0);
-//	HAL_NVIC_EnableIRQ(CONF_WINC_EXTI_IRQN);
+  /* Initializing ISR function - called from nm_bsp_register_isr() */
   palEnablePadEvent(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_EVENT_MODE_FALLING_EDGE);
-  /************************************************************************/
-   palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,isr,NULL);
-   /************************************************************************/
+  palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,isr,NULL);
 }
 
 /*
@@ -189,16 +154,11 @@ void nm_bsp_interrupt_ctrl(uint8 u8Enable)
 {
 	if (1 == u8Enable)
 	{
-//		HAL_NVIC_SetPriority((IRQn_Type)(CONF_WINC_EXTI_IRQN), 0x01, 0);
-//		HAL_NVIC_EnableIRQ((IRQn_Type)(CONF_WINC_EXTI_IRQN));
 	  palEnablePadEvent(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_EVENT_MODE_FALLING_EDGE);
-      /************************************************************************/
       palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,isr,NULL);
-     /************************************************************************/
 	}
 	else
 	{
-//		HAL_NVIC_DisableIRQ((IRQn_Type)(CONF_WINC_EXTI_IRQN));
 	  palClearPad(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN);
 	}
 }

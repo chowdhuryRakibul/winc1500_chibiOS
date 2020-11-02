@@ -41,6 +41,8 @@
  */
 
 #include <stdio.h>
+#include "hal.h"
+#include "ch.h"
 
 #include "winc1500/common/include/nm_common.h"
 #include "winc1500/driver/source/nmbus.h"
@@ -50,10 +52,8 @@
 #include "winc1500/driver/include/m2m_types.h"
 #include "winc1500/spi_flash/include/spi_flash.h"
 #include "winc1500/config/conf_winc.h"
-
-#ifdef CONF_WINC_USE_SPI
 #include "winc1500/driver/source/nmspi.h"
-#endif
+
 
 /**
 *	@fn		nm_get_firmware_info(tstrM2mRev* M2mRev)

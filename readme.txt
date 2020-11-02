@@ -6,11 +6,22 @@
 
 The demo runs on an STM32 Nucleo64-F410RB board.
 
-** The Demo **
+** The Wifi Scan and Connect Demo **
 
-The demo flashes the board LED using a thread, by pressing the button located
-on the board the test procedure is activated with output on the serial port
-SD2 (USART2, mapped on USB virtual COM port).
+The demo flashes the board LED using a thread, It also connects with ATWinc1500
+via SPI2 (SPID2) and scans for WiFi networks. Upon finding the predefined SSID, 
+it connects with it. All output on the serial port SD2 
+(USART2, mapped on USB virtual COM port).
+
+** PinOut **
+
+MISO	PC2
+MOSI	PC3
+SCK		PB10
+CS		PC1
+IRQ		PB15
+Enable	PB1
+Reset	PB14
 
 ** Build Procedure **
 

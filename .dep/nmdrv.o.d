@@ -28,13 +28,6 @@ build/obj/nmdrv.o: winc1500/driver/source/nmdrv.c \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\sys\sched.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\machine\types.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\sys\stdio.h \
- winc1500/common/include/nm_common.h winc1500/bsp/include/nm_bsp.h \
- winc1500/common/include/nm_debug.h \
- winc1500/bsp/include/nm_bsp_internal.h winc1500/driver/source/nmbus.h \
- winc1500/bus_wrapper/include/nm_bus_wrapper.h \
- winc1500/driver/source/nmdrv.h winc1500/driver/source/nmasic.h \
- winc1500/driver/include/m2m_types.h \
- winc1500/spi_flash/include/spi_flash.h winc1500/config/conf_winc.h \
  ../../chibios203/os/hal/include/hal.h \
  ../../chibios203/os/hal/osal/rt-nil/osal.h \
  c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\lib\gcc\arm-none-eabi\9.2.1\include\stdint.h \
@@ -142,7 +135,14 @@ build/obj/nmdrv.o: winc1500/driver/source/nmdrv.c \
  ../../chibios203/os/hal/ports/STM32/LLD/TIMv1/hal_st_lld.h \
  ../../chibios203/os/hal/include/hal_mmc_spi.h \
  ../../chibios203/os/hal/include/hal_serial_usb.h \
- winc1500/driver/source/nmspi.h
+ winc1500/common/include/nm_common.h winc1500/bsp/include/nm_bsp.h \
+ winc1500/common/include/nm_debug.h \
+ winc1500/bsp/include/nm_bsp_internal.h winc1500/config/conf_winc.h \
+ winc1500/driver/source/nmbus.h \
+ winc1500/bus_wrapper/include/nm_bus_wrapper.h \
+ winc1500/driver/source/nmdrv.h winc1500/driver/source/nmasic.h \
+ winc1500/driver/include/m2m_types.h \
+ winc1500/spi_flash/include/spi_flash.h winc1500/driver/source/nmspi.h
 
 c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\stdio.h:
 
@@ -201,28 +201,6 @@ c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include
 c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\machine\types.h:
 
 c:\chibistudio\tools\gnu\ tools\ arm\ embedded\9.0\ 2019q4\arm-none-eabi\include\sys\stdio.h:
-
-winc1500/common/include/nm_common.h:
-
-winc1500/bsp/include/nm_bsp.h:
-
-winc1500/common/include/nm_debug.h:
-
-winc1500/bsp/include/nm_bsp_internal.h:
-
-winc1500/driver/source/nmbus.h:
-
-winc1500/bus_wrapper/include/nm_bus_wrapper.h:
-
-winc1500/driver/source/nmdrv.h:
-
-winc1500/driver/source/nmasic.h:
-
-winc1500/driver/include/m2m_types.h:
-
-winc1500/spi_flash/include/spi_flash.h:
-
-winc1500/config/conf_winc.h:
 
 ../../chibios203/os/hal/include/hal.h:
 
@@ -443,5 +421,27 @@ cfg/mcuconf.h:
 ../../chibios203/os/hal/include/hal_mmc_spi.h:
 
 ../../chibios203/os/hal/include/hal_serial_usb.h:
+
+winc1500/common/include/nm_common.h:
+
+winc1500/bsp/include/nm_bsp.h:
+
+winc1500/common/include/nm_debug.h:
+
+winc1500/bsp/include/nm_bsp_internal.h:
+
+winc1500/config/conf_winc.h:
+
+winc1500/driver/source/nmbus.h:
+
+winc1500/bus_wrapper/include/nm_bus_wrapper.h:
+
+winc1500/driver/source/nmdrv.h:
+
+winc1500/driver/source/nmasic.h:
+
+winc1500/driver/include/m2m_types.h:
+
+winc1500/spi_flash/include/spi_flash.h:
 
 winc1500/driver/source/nmspi.h:

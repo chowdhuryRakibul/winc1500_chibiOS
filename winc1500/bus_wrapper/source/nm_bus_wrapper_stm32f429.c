@@ -48,9 +48,9 @@
 #include "winc1500/common/include/nm_common.h"
 #include "winc1500/bus_wrapper/include/nm_bus_wrapper.h"
 #include "winc1500/config/conf_winc.h"
+
 #include "hal.h"
 #include "ch.h"
-
 
 const SPIConfig spicfg = {
       false,
@@ -62,86 +62,42 @@ const SPIConfig spicfg = {
     };
 
 #define NM_BUS_MAX_TRX_SZ	256
-//SPI_HandleTypeDef hspi2;
-//SPIDriver SPID1;
+
 tstrNmBusCapabilities egstrNmBusCapabilities =
 {
 	NM_BUS_MAX_TRX_SZ
 };
 
-#ifdef CONF_WINC_USE_SPI
-
 static uint8 spiDummyBuf[300] = {0};
 
 static sint8 spi_rw(uint8* pu8Mosi, uint8* pu8Miso, uint16 u16Sz)
 {
-//	HAL_StatusTypeDef status;
-	/* Start SPI transaction - polling method */
-//	HAL_GPIO_WritePin(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,GPIO_PIN_RESET);
   spiSelect(&SPID2);
 	/* Transmit/Recieve */
-	if (pu8Mosi == NULL)
-	{
-//		status = HAL_SPI_TransmitReceive(&hspi2,spiDummyBuf,pu8Miso,u16Sz,1000);
-	  spiExchange(&SPID2,u16Sz,spiDummyBuf,pu8Miso);
-	}
-	else if(pu8Miso == NULL)
-	{
-//		status = HAL_SPI_TransmitReceive(&hspi2,pu8Mosi,spiDummyBuf,u16Sz,1000);
-	  spiExchange(&SPID2,u16Sz,pu8Mosi,spiDummyBuf);
-		memset(spiDummyBuf,0, u16Sz);
-	}
-	else
-	{
-	  spiExchange(&SPID2,u16Sz,pu8Mosi,pu8Miso);
-//		status = HAL_SPI_TransmitReceive(&hspi2,pu8Mosi,pu8Miso,u16Sz,1000);
-	}
+  if (pu8Mosi == NULL)
+  {
+    spiExchange(&SPID2,u16Sz,spiDummyBuf,pu8Miso);
+  }
+  else if(pu8Miso == NULL)
+  {
+    spiExchange(&SPID2,u16Sz,pu8Mosi,spiDummyBuf);
+    memset(spiDummyBuf,0, u16Sz);
+  }
+  else
+  {
+    spiExchange(&SPID2,u16Sz,pu8Mosi,pu8Miso);
+  }
 
-	/* Handle Transmit/Recieve error */
-//	if (status != HAL_OK)
-//	{
-//		M2M_ERR("%s: HAL_SPI_TransmitReceive failed. error (%d)\n",__FUNCTION__,status);
-//		return status;
-//	}
-	spiUnselect(&SPID2);
-//	HAL_GPIO_WritePin(SPI_WIFI_CS_PORT,SPI_WIFI_CS_PIN,GPIO_PIN_SET);
-	return M2M_SUCCESS;
+  spiUnselect(&SPID2);
+  return M2M_SUCCESS;
 }
-#endif
-
 
 void nm_bus_wifi_spi_init(SPIDriver *SPID)
 {
-	/* Peripheral clock enable */
-//	__HAL_RCC_SPI2_CLK_ENABLE();
-//	__HAL_RCC_GPIOC_CLK_ENABLE();
-//	__HAL_RCC_GPIOB_CLK_ENABLE();
-//
-//	GPIO_InitTypeDef  GPIO_InitStruct = {0};
   palSetPadMode(SPI_WIFI_MISO_PORT, SPI_WIFI_MISO_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
-//	GPIO_InitStruct.Pin = SPI_WIFI_MISO_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//	GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//	GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-//	HAL_GPIO_Init(SPI_WIFI_MISO_PORT, &GPIO_InitStruct);
   palSetPadMode(SPI_WIFI_MOSI_PORT, SPI_WIFI_MOSI_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
-
-//	GPIO_InitStruct.Pin = SPI_WIFI_MOSI_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//	GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//	GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-//	HAL_GPIO_Init(SPI_WIFI_MOSI_PORT, &GPIO_InitStruct);
   palSetPadMode(SPI_WIFI_SCK_PORT, SPI_WIFI_SCK_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
 
-//	GPIO_InitStruct.Pin = SPI_WIFI_SCK_PIN;
-//	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-//	GPIO_InitStruct.Pull = GPIO_NOPULL;
-//	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-//	GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-//	HAL_GPIO_Init(SPI_WIFI_SCK_PORT, &GPIO_InitStruct);
-  //palSetPadMode(SPI_WIFI_CS_PORT, SPI_WIFI_CS_PIN,PAL_MODE_ALTERNATE(5) | PAL_STM32_OSPEED_HIGHEST);
   spiStart(SPID,&spicfg);
 }
 
@@ -152,28 +108,9 @@ void nm_bus_wifi_spi_init(SPIDriver *SPID)
 */
 sint8 nm_bus_init(void *pvinit)
 {
-	sint8 result = M2M_SUCCESS;
-
 	/* SPI2 parameter configuration*/
-//	hspi2.Instance = SPI2;
-//	hspi2.Init.Mode = SPI_MODE_MASTER;
-//	hspi2.Init.Direction = SPI_DIRECTION_2LINES;
-//	hspi2.Init.DataSize = SPI_DATASIZE_8BIT;
-//	hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
-//	hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
-//	hspi2.Init.NSS = SPI_NSS_SOFT;
-//	hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
-//	hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-//	hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
-//	hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-//	hspi2.Init.CRCPolynomial = 10;
-//	if (HAL_SPI_Init(&hspi2) != HAL_OK)
-//	{
-//		M2M_ERR("SPI bus Initialization error\r\n");
-//	}
-//	HAL_SPI_MspInit(&hspi2);
 	nm_bus_wifi_spi_init(&SPID2);
-	return result;
+	return M2M_SUCCESS;
 }
 
 /*
@@ -212,8 +149,8 @@ sint8 nm_bus_ioctl(uint8 u8Cmd, void* pvParameter)
 */
 sint8 nm_bus_deinit(void)
 {
-	sint8 result = M2M_SUCCESS;
-	return result;
+	spiStop(&SPID2);
+	return M2M_SUCCESS;
 }
 
 /*
@@ -230,4 +167,3 @@ sint8 nm_bus_reinit(void* config)
 {
 	return M2M_SUCCESS;
 }
-

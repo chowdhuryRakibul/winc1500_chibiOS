@@ -43,7 +43,7 @@
 
 #include "winc1500/bsp/include/nm_bsp.h"
 #include "winc1500/bsp/include/nm_bsp_internal.h"
-//#include "DebugConsole.h"
+#include "winc1500/config/conf_winc.h"
 
 
 /**@defgroup  DebugDefines DebugDefines

@@ -99,7 +99,7 @@ typedef void (*tpfHifCallBack)(uint8 u8OpCode, uint16 u16DataSize, uint32 u32Add
 *   @return
 				The function shall return ZERO for successful operation and a negative value otherwise.
 */
-NMI_API sint8 hif_init(void * arg);
+NMI_API sint8 hif_init(void);
 /**
 *	@fn			NMI_API sint8 hif_deinit(void * arg);
 *	@brief
