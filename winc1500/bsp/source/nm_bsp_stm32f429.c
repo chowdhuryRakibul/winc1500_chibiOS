@@ -43,6 +43,7 @@
 #include "winc1500/common/include/nm_common.h"
 #include "winc1500/config/conf_winc.h"
 #include "hal.h"
+#include "winc1500/driver/source/m2m_hif.h"
 
 /*
  *	@fn		init_chip_pins
@@ -173,9 +174,9 @@ void nm_bsp_register_isr(tpfNmBspIsr pfIsr)
 //	HAL_NVIC_SetPriority(CONF_WINC_EXTI_IRQN, 0x00, 0);
 //	HAL_NVIC_EnableIRQ(CONF_WINC_EXTI_IRQN);
   palEnablePadEvent(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_EVENT_MODE_FALLING_EDGE);
-  /************************************************************************
-   * palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,HANDLER,NULL) *
-   ************************************************************************/
+  /************************************************************************/
+   palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,isr,NULL);
+   /************************************************************************/
 }
 
 /*
@@ -191,9 +192,9 @@ void nm_bsp_interrupt_ctrl(uint8 u8Enable)
 //		HAL_NVIC_SetPriority((IRQn_Type)(CONF_WINC_EXTI_IRQN), 0x01, 0);
 //		HAL_NVIC_EnableIRQ((IRQn_Type)(CONF_WINC_EXTI_IRQN));
 	  palEnablePadEvent(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,PAL_EVENT_MODE_FALLING_EDGE);
-      /************************************************************************
-      * palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,HANDLER,NULL)  *
-      ************************************************************************/
+      /************************************************************************/
+      palSetPadCallback(CONF_WINC_IRQ_PORT,CONF_WINC_IRQ_PIN,isr,NULL);
+     /************************************************************************/
 	}
 	else
 	{

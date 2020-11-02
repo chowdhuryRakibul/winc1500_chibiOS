@@ -114,7 +114,8 @@ build/obj/nm_bsp_stm32f429.o: winc1500/bsp/source/nm_bsp_stm32f429.c \
  ../../chibios203/os/hal/include/hal_st.h \
  ../../chibios203/os/hal/ports/STM32/LLD/TIMv1/hal_st_lld.h \
  ../../chibios203/os/hal/include/hal_mmc_spi.h \
- ../../chibios203/os/hal/include/hal_serial_usb.h
+ ../../chibios203/os/hal/include/hal_serial_usb.h \
+ winc1500/driver/source/m2m_hif.h
 
 winc1500/bsp/include/nm_bsp.h:
 
@@ -357,3 +358,5 @@ cfg/mcuconf.h:
 ../../chibios203/os/hal/include/hal_mmc_spi.h:
 
 ../../chibios203/os/hal/include/hal_serial_usb.h:
+
+winc1500/driver/source/m2m_hif.h:

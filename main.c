@@ -13,6 +13,7 @@
 #include "winc1500/bsp/include/nm_bsp.h"
 
 
+
 #define MAIN_WLAN_SSID        "DIAS" /* < Destination SSID */
 #define MAIN_WLAN_AUTH        M2M_WIFI_SEC_WPA_PSK /* < Security manner */
 #define MAIN_WLAN_PSK         "diaspass" /* < Password for Destination SSID */
